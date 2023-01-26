@@ -25,11 +25,13 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_
 On this tutorial we will use a service account.
 
 To create a service account, you have to got to:
+
 ![image](./images/service_account_menu.png)
 
 In there, we create a new service account with **Storage Admin** + **Storage Object Admin** + **BigQuery Admin** permissions.
 
 We generate a key for that account by clicking the 3 dots and adding a key.
+
 ![key](./images/adding_a_key.png)
 
 Once it downloads, you can export it the same as your personal account and log in using that account.
@@ -143,8 +145,11 @@ This command applies changes to the cloud.
 terraform apply -var="project=<your-gcp-project-id>"
 ```
 After a correct application, you can go to the management platform and see your newly created resources:
+
 ![tf apply 1](images/apply1.png)
+
 ![tf apply 2](images/apply2.png)
+
 ### Delete infra after your work, to avoid costs on any running services
 ```bash
 terraform destroy
