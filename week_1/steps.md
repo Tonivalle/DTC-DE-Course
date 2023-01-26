@@ -53,7 +53,7 @@ Enable these APIs for your project (by clicking on the links):
 
 https://console.cloud.google.com/apis/library/iam.googleapis.com
 https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com
-https://console.cloud.google.com/apis/library/bigquery.googleapis.com?project=vast-bounty-142716
+https://console.cloud.google.com/apis/library/bigquery.googleapis.com
 
 
 Once we do that we can install python client libraries. e.g.:
