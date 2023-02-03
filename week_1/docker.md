@@ -115,3 +115,5 @@ And we can run it with:
 ```bash
 docker run -it test:pandas 20-02-2003
 ```
+
+![docker-cheat](./images/dockercheatsheet.png)
