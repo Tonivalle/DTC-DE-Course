@@ -82,7 +82,7 @@ https://developer.hashicorp.com/terraform/tutorials/gcp-get-started
 
 ## 5. Code your infrastructure with Terraform
 
-## main.tf
+### main.tf
 This file contains these 4 basic declarations:
 * `terraform`: configure basic Terraform settings to provision your infrastructure
    * `required_version`: minimum Terraform version to apply to your configuration
@@ -99,7 +99,7 @@ This file contains these 4 basic declarations:
 
 > **_NOTE:_** The resources change name with the different providers; in this case the required_providers source is `hashicorp/google` so we get `google_storage_bucket`for example. If it was `aws` we would have to use the `s3` version of the package.
 
-## variables.tf
+### variables.tf
 
 * `variable` & `locals` are runtime arguments and constants
 
@@ -154,3 +154,24 @@ After a correct application, you can go to the management platform and see your 
 ```bash
 terraform destroy
 ```
+
+## 7. Docker 
+
+We use docker to create the containers that will have the components for our application inside.
+
+```mermaid
+flowchart LR;
+  subgraph Docker container
+  B[Data Pipeline]
+  end
+
+  subgraph Docker container
+  C[(Table in Postgres)]
+  end
+
+  A[/Source/] ---> B
+  B ---> C
+  A1[/Source/] ---> B
+  A2[/Source/] ---> B
+```
+We will test the capabilities of docker in a local environment [here](./docker.md).
