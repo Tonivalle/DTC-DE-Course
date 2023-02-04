@@ -437,7 +437,7 @@ This allows us to use commands on the container.
 or
 <div class="highlight"><pre><span></span><code><span class="na">wget</span><span class="w"> </span><span class="s">-p ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
 </code></pre></div></p>
-<p>We load this data into Postgres with the code inside <a href="./docker/postgres/data_to_postgres.ipynb">this notebook</a>.</p>
+<p>We load this data into Postgres with the code inside <a href="../../code/week_1/docker/postgres/data_to_postgres.ipynb">this notebook</a>.</p>
 <p>To see the data and interact with it we are going to use pgAdmin inside a docker container.</p>
 <div class="highlight"><pre><span></span><code><span class="na">docker</span><span class="w"> </span><span class="s">run -it </span>\
 <span class="w">  </span><span class="s">-e PGADMIN_DEFAULT_EMAIL=&quot;admin@admin.com&quot; </span>\
