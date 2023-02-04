@@ -7,7 +7,7 @@ DOC_CHANGES=$(git diff --cached --name-only --diff-filter=ACM | grep docs/ | wc 
 if [ $DOC_CHANGES -gt 0 ]
 then
     echo "$DOC_CHANGES doc files changed. Deploying to github pages..."
-    # mkdocs gh-deploy
+    poetry run mkdocs gh-deploy
 else
     echo "No new changes to deploy!"
 fi

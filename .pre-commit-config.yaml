@@ -6,3 +6,5 @@ repos:
       description: This hook builds the docs and uploads them to gh.
       entry: make docs-deploy
       language: system
+      pass_filenames: false
+      stages: [commit]

@@ -28,7 +28,8 @@ This file contains these 4 basic declarations:
   * blocks to define components of your infrastructure
   * Project modules/resources: google_storage_bucket, google_bigquery_dataset, google_bigquery_table
 
-> **_NOTE:_** The resources change name with the different providers; in this case the required_providers source is `hashicorp/google` so we get `google_storage_bucket`for example. If it was `aws` we would have to use the `s3` version of the package.
+!!! note
+    The resources change name with the different providers; in this case the required_providers source is `hashicorp/google` so we get `google_storage_bucket`for example. If it was `aws` we would have to use the `s3` version of the package.
 
 ### variables.tf
 

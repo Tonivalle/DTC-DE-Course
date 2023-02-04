@@ -51,7 +51,7 @@ or
 wget -p ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
 ```
 
-We load this data into Postgres with the code inside [this notebook](./docker/postgres/data_to_postgres.ipynb).
+We load this data into Postgres with the code inside [this notebook](../../code/week_1/docker/postgres/data_to_postgres.ipynb).
 
 To see the data and interact with it we are going to use pgAdmin inside a docker container.
 

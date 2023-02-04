@@ -31,6 +31,7 @@ theme:
     - content.code.copy
 markdown_extensions:
   - codehilite
+  - admonition
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.superfences:

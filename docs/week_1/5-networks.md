@@ -42,7 +42,8 @@ docker run -it \
   --network=pg-network \
   dpage/pgadmin4
 ```
-> **_NOTE:_** We gave the database a `--name` to configure the connection easier, since if you dont you need to check the name docker has given the container.
+!!! tip
+    We gave the database a `--name` to configure the connection easier, since if you dont you need to check the name docker has given the container.
 
 We can now go to `localhost:8080` since in the pgadmin configuration we passed that as the port in our machine that will comunicate with the container.
 

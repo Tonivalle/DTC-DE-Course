@@ -33,7 +33,8 @@ Which will print the following:
 
 ![docker-hello](./images/docker-hello.png)
 
-> **_NOTE:_** If you get "`Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.`" as an error, you need to start the daemon, on mac it is done by running the docker app. 
+!!! tip
+    If you get "`Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.`" as an error, you need to start the daemon, on mac it is done by running the docker app. 
 
 If we run the command shown in the `hello-world` image:
 ```properties
@@ -42,8 +43,9 @@ docker run -it ubuntu bash
 We will get a container with ubuntu on it, in which we can run normal bash commands.
 ![docker-ubuntu](./images/docker-ubuntu.png)
 
-> **_NOTE:_** `-it` -> _interactive_ + _terminal_. When you docker run with this command it takes you straight inside the container.\
-> Other common flag is `-d` -> _detach_, wich will keep the terminal free and the machine running in the background.
+!!! info
+    `-it` -> _interactive_ + _terminal_. When you docker run with this command it takes you straight inside the container.\
+    Other common flag is `-d` -> _detach_, wich will keep the terminal free and the machine running in the background.
 
 With `docker ps` or `docker container ls` we can check the containers currently running.
 
@@ -64,7 +66,8 @@ We will now be in a shell able to install packages like `numpy` on our container
 
 ![docker-python](./images/docker-python.png)
 
-> **_NOTE:_** Remember that packages installed will not be mantained between different runs of the container, they will mantain the structure they had when downloaded.
+!!! warning
+    Remember that packages installed will not be mantained between different runs of the container, they will mantain the structure they had when downloaded.
 
 ## Dockerfiles
 In these files we can specify instructions in order to run the containers. 
