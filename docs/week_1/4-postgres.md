@@ -12,7 +12,7 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v $(pwd)/week_1/docker/postgres/data:/var/lib/postgresql/data \
+  -v $(pwd)/code/week_1/docker/postgres/data:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:13
 ```
@@ -44,11 +44,11 @@ poetry add jupyter pandas sqlalchemy
 Now we will download the dataset, which is the NY taxi dataset, which is a common one for experimenting with data tools. The one used is [this one](https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet).
 
 ```properties
-curl -O -L --output-dir ./week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+curl -O -L --output-dir ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
 ```
 or
 ```properties
-wget -p ./week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+wget -p ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
 ```
 
 We load this data into Postgres with the code inside [this notebook](./docker/postgres/data_to_postgres.ipynb).
