@@ -132,3 +132,11 @@ dmypy.json
 terraform.*
 .terraform.*
 .terraform
+
+# DS_Store
+.DS_Store
+
+# Project-specific
+
+data/
+raw/
