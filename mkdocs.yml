@@ -1,0 +1,40 @@
+site_name: DTC-DE-Course
+# site_url: https://website.com
+site_author: Antonio Vallejo
+# Repository
+repo_name: Tonivalle/DTC-DE-Course
+repo_url: https://github.com/Tonivalle/DTC-DE-Course
+
+# Configuration
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: default/rocket-24.svg
+  icon:
+    logo: octicons/rocket-24
+  features:
+    - content.code.copy
+markdown_extensions:
+  - codehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

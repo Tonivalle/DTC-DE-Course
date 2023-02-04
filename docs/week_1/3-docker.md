@@ -2,13 +2,31 @@
 
 The course's page is [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/2_docker_sql).
 
+We use docker to create the containers that will have the components for our application inside.
+
+```mermaid
+flowchart LR;
+  subgraph Docker container
+  B[Data Pipeline]
+  end
+
+  subgraph Docker container
+  C[(Table in Postgres)]
+  end
+
+  A[/Source/] ---> B
+  B ---> C
+  A1[/Source/] ---> B
+  A2[/Source/] ---> B
+```
+
 ## Installation and basic commands
 
 First we install docker for our platform: https://docs.docker.com/get-docker/
 
 You can test the installation by running:
 
-```bash
+```properties
 docker run hello-world
 ```
 Which will print the following:
@@ -18,7 +36,7 @@ Which will print the following:
 > **_NOTE:_** If you get "`Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.`" as an error, you need to start the daemon, on mac it is done by running the docker app. 
 
 If we run the command shown in the `hello-world` image:
-```bash
+```properties
 docker run -it ubuntu bash
 ```
 We will get a container with ubuntu on it, in which we can run normal bash commands.
@@ -39,7 +57,7 @@ This image will run an interactive python shell, but we will not be able to use 
 
 We can specify an entrypoint to the container, for example, bash.
 
-```bash
+```properties
 docker run -it --entrypoint=bash python:3.9
 ```
 We will now be in a shell able to install packages like `numpy` on our container.
@@ -68,7 +86,7 @@ ENTRYPOINT [ "bash" ]
 
 Now we can build an image based on `python:3.9` that also uses performs these instructions.
 
-```bash
+```properties
 docker build -t test:pandas ./week1/docker/test
 ```
 We specify the `name:tag` of the container with `-t` and after that the path where we will take the config for the image (This folder is the one to contain the Dockerfile)
@@ -86,7 +104,7 @@ COPY pipeline.py pipeline.py
 ```
 
 we can run this image by using:
-```bash
+```properties
 docker run -it test:pandas
 ```
 
@@ -112,7 +130,7 @@ day = sys.argv[1]
 print(f'job finished successfully for day = {day}')
 ```
 And we can run it with:
-```bash
+```properties
 docker run -it test:pandas 20-02-2003
 ```
 
