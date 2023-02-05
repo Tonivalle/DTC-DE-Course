@@ -8,3 +8,11 @@ repos:
       language: system
       pass_filenames: false
       stages: [commit]
+      
+    - id: check
+      name: check
+      description: This hook checks the formatting of the code.
+      entry: make check
+      language: system
+      pass_filenames: false
+      stages: [commit]

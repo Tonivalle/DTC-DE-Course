@@ -140,3 +140,4 @@ terraform.*
 
 data/
 raw/
+.vscode
