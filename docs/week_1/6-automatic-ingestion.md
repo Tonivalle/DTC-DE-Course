@@ -1,8 +1,8 @@
 # Automatic Ingestion
 
-We are going to refactor the code to automate the ingestion of data into the database.
+## Automating the pipeline
 
-# TODO: I need to test the Pipeline!!! Delete the table first to see the changes.
+We are going to refactor the code to automate the ingestion of data into the database.
 
 The command to test the pipeline is:
 ```properties

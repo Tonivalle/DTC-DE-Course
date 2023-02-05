@@ -53,7 +53,7 @@ wget -p ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/
 
 We load this data into Postgres with the code inside [this notebook](../../code/week_1/docker/postgres/data_to_postgres.ipynb).
 
-To see the data and interact with it we are going to use pgAdmin inside a docker container.
+To see the data and interact with it we are going to use pgAdmin inside a docker container, wich we will be able to see in our browser at `http://localhost:8080/`.
 
 ```properties
 docker run -it \
