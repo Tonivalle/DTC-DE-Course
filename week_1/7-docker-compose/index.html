@@ -11,17 +11,15 @@
       
       
       
-        <link rel="prev" href="../1-google-cloud/">
+        <link rel="prev" href="../6-automatic-ingestion/">
       
-      
-        <link rel="next" href="../3-docker/">
       
       <link rel="icon" href="../../default/rocket-24.svg">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
     
     
       
-        <title>Terraform - DTC-DE-Course</title>
+        <title>Docker-Compose - DTC-DE-Course</title>
       
     
     
@@ -73,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#terraform" class="md-skip">
+        <a href="#docker-compose" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Terraform
+              Docker-Compose
             
           </span>
         </div>
@@ -292,140 +290,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Terraform
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2-terraform/" class="md-nav__link">
         Terraform
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-install-terraform" class="md-nav__link">
-    1. Install Terraform
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Install Terraform">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#other-options" class="md-nav__link">
-    Other options
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#terraform-gcp-get-started-guide" class="md-nav__link">
-    Terraform GCP get started guide
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-code-your-infrastructure-with-terraform" class="md-nav__link">
-    2. Code your infrastructure with Terraform
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Code your infrastructure with Terraform">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#maintf" class="md-nav__link">
-    main.tf
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variablestf" class="md-nav__link">
-    variables.tf
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-generate-your-infrastructure-via-terraform" class="md-nav__link">
-    3. Generate your infrastructure via Terraform
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Generate your infrastructure via Terraform">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#initialize-state-file-tfstate" class="md-nav__link">
-    Initialize state file (.tfstate)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-changes-to-new-infra-plan" class="md-nav__link">
-    Check changes to new infra plan
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-new-infra" class="md-nav__link">
-    Create new infra
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-infra-after-your-work-to-avoid-costs-on-any-running-services" class="md-nav__link">
-    Delete infra after your work, to avoid costs on any running services
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -491,11 +360,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../7-docker-compose/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Docker-Compose
       </a>
+      
     </li>
   
 
@@ -527,109 +406,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-install-terraform" class="md-nav__link">
-    1. Install Terraform
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Install Terraform">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#other-options" class="md-nav__link">
-    Other options
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#terraform-gcp-get-started-guide" class="md-nav__link">
-    Terraform GCP get started guide
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-code-your-infrastructure-with-terraform" class="md-nav__link">
-    2. Code your infrastructure with Terraform
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Code your infrastructure with Terraform">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#maintf" class="md-nav__link">
-    main.tf
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variablestf" class="md-nav__link">
-    variables.tf
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-generate-your-infrastructure-via-terraform" class="md-nav__link">
-    3. Generate your infrastructure via Terraform
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Generate your infrastructure via Terraform">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#initialize-state-file-tfstate" class="md-nav__link">
-    Initialize state file (.tfstate)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-changes-to-new-infra-plan" class="md-nav__link">
-    Check changes to new infra plan
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-new-infra" class="md-nav__link">
-    Create new infra
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-infra-after-your-work-to-avoid-costs-on-any-running-services" class="md-nav__link">
-    Delete infra after your work, to avoid costs on any running services
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -647,79 +423,47 @@
 
 
 
-<h1 id="terraform">Terraform</h1>
-<h2 id="1-install-terraform">1. Install Terraform</h2>
-<p>Terraform is an open-source <strong>infrastructure as code</strong> software tool. It will be used to generate the GCP infrastructure.
-<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>tap<span class="w"> </span>hashicorp/tap
-brew<span class="w"> </span>install<span class="w"> </span>hashicorp/tap/terraform
-</code></pre></div></p>
-<h3 id="other-options">Other options</h3>
-<p>https://developer.hashicorp.com/terraform/downloads</p>
-<h3 id="terraform-gcp-get-started-guide">Terraform GCP get started guide</h3>
-<p>https://developer.hashicorp.com/terraform/tutorials/gcp-get-started</p>
-<h2 id="2-code-your-infrastructure-with-terraform">2. Code your infrastructure with Terraform</h2>
-<h3 id="maintf">main.tf</h3>
-<p>This file contains these 4 basic declarations:
-* <code>terraform</code>: configure basic Terraform settings to provision your infrastructure
-   * <code>required_version</code>: minimum Terraform version to apply to your configuration
-   * <code>backend</code>: stores Terraform's "state" snapshots, to map real-world resources to your configuration.
-      * <code>local</code>: stores state file locally as <code>terraform.tfstate</code>
-   * <code>required_providers</code>: specifies the providers required by the current module
-* <code>provider</code>:
-   * adds a set of resource types and/or data sources that Terraform can manage
-   * The Terraform Registry is the main directory of publicly available providers from most major infrastructure platforms.
-* <code>resource</code>
-  * Physical component and its attributes.
-  * blocks to define components of your infrastructure
-  * Project modules/resources: google_storage_bucket, google_bigquery_dataset, google_bigquery_table</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The resources change name with the different providers; in this case the required_providers source is <code>hashicorp/google</code> so we get <code>google_storage_bucket</code>for example. If it was <code>aws</code> we would have to use the <code>s3</code> version of the package.</p>
-</div>
-<h3 id="variablestf">variables.tf</h3>
+<h1 id="docker-compose">Docker-Compose</h1>
+<p>This is a tool for defining and running multi-container Docker applications, With it, we can start the whole application using only one file.</p>
+<p>We can specify every parameter of the containers in a file called <code>docker-compose.yaml</code>:</p>
+<div class="admonition info inline end">
+<p class="admonition-title">Info</p>
 <ul>
-<li><code>variable</code> &amp; <code>locals</code> are runtime arguments and constants</li>
+<li>Note that we dont need to specify the network, <code>docker-compose</code> automatically puts every service inside the same network.</li>
+<li>The volumes have a <code>:rw</code> at the end to give read and write permissions to the container in those volumes.</li>
 </ul>
-<p>They are used in the <code>main.tf</code> like so:</p>
-<p>variables.tf
-<div class="highlight"><pre><span></span><code><span class="kr">variable</span><span class="w"> </span><span class="nv">&quot;project&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Your GCP Project ID&quot;</span>
-<span class="p">}</span>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">pg-database</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:13</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_USER=root</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD=root</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_DB=ny_taxi</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../postgres/data:/var/lib/postgresql/data:rw</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432:5432&quot;</span>
 
-<span class="kr">variable</span><span class="w"> </span><span class="nv">&quot;region&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Region for GCP resources. Choose as per your location: https://cloud.google.com/about/locations&quot;</span>
-<span class="w">  </span><span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;europe-west6&quot;</span>
-<span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="nt">pgadmin</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dpage/pgadmin4</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGADMIN_DEFAULT_EMAIL=admin@admin.com</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGADMIN_DEFAULT_PASSWORD=root</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:80&quot;</span>
 </code></pre></div>
-main.tf:
-<div class="highlight"><pre><span></span><code><span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;google&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.project</span>
-<span class="w">  </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.region</span>
-<span class="p">}</span>
+<p>Now we can call <code>docker-compose</code> to spin up all these services:
+<div class="highlight"><pre><span></span><code><span class="na">docker-compose</span><span class="w"> </span><span class="s">-f ./code/week_1/docker/automatic_ingestion/docker-compose.yml up</span>
 </code></pre></div></p>
-<h2 id="3-generate-your-infrastructure-via-terraform">3. Generate your infrastructure via Terraform</h2>
-<p>Terraform has few associated commands  that we need to use:</p>
-<h3 id="initialize-state-file-tfstate">Initialize state file (.tfstate)</h3>
-<p><div class="highlight"><pre><span></span><code><span class="na">terraform</span><span class="w"> </span><span class="s">init</span>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You only need the <code>-f</code> flag if your <code>docker-compose.yaml</code> is not no your current directory.</p>
+<p>You can start the services normally with:
+<div class="highlight"><pre><span></span><code><span class="na">docker-compose</span><span class="w"> </span><span class="s">up </span>
 </code></pre></div>
-<img alt="tf init" src="../images/terraform_init.png" /></p>
-<h3 id="check-changes-to-new-infra-plan">Check changes to new infra plan</h3>
-<p>This command matches changes against the previous state.
-<div class="highlight"><pre><span></span><code><span class="na">terraform</span><span class="w"> </span><span class="s">plan -var=&quot;project=&lt;your-gcp-project-id&gt;&quot;</span>
-</code></pre></div>
-If you dont add the <code>-var</code> argument, You will get a promt like this one:\
-<img alt="tf plan" src="../images/plan.png" /></p>
-<h3 id="create-new-infra">Create new infra</h3>
-<p>This command applies changes to the cloud.
-<div class="highlight"><pre><span></span><code><span class="na">terraform</span><span class="w"> </span><span class="s">apply -var=&quot;project=&lt;your-gcp-project-id&gt;&quot;</span>
-</code></pre></div>
-After a correct application, you can go to the management platform and see your newly created resources:</p>
-<p><img alt="tf apply 1" src="../images/apply1.png" /></p>
-<p><img alt="tf apply 2" src="../images/apply2.png" /></p>
-<h3 id="delete-infra-after-your-work-to-avoid-costs-on-any-running-services">Delete infra after your work, to avoid costs on any running services</h3>
-<div class="highlight"><pre><span></span><code><span class="na">terraform</span><span class="w"> </span><span class="s">destroy</span>
-</code></pre></div>
+Also you can run them in <strong>detached mode</strong> if you use the <code>-d</code> flag.</p>
+</div>
 
 
 

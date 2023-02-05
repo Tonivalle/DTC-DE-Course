@@ -14,6 +14,8 @@
         <link rel="prev" href="../5-networks/">
       
       
+        <link rel="next" href="../7-docker-compose/">
+      
       <link rel="icon" href="../../default/rocket-24.svg">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
     
@@ -357,10 +359,55 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Automatic Ingestion
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Automatic Ingestion
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#automating-the-pipeline" class="md-nav__link">
+    Automating the pipeline
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7-docker-compose/" class="md-nav__link">
+        Docker-Compose
+      </a>
     </li>
   
 
@@ -392,6 +439,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#automating-the-pipeline" class="md-nav__link">
+    Automating the pipeline
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -410,8 +472,8 @@
 
 
 <h1 id="automatic-ingestion">Automatic Ingestion</h1>
+<h2 id="automating-the-pipeline">Automating the pipeline</h2>
 <p>We are going to refactor the code to automate the ingestion of data into the database.</p>
-<h1 id="todo-i-need-to-test-the-pipeline-delete-the-table-first-to-see-the-changes">TODO: I need to test the Pipeline!!! Delete the table first to see the changes.</h1>
 <p>The command to test the pipeline is:
 <div class="highlight"><pre><span></span><code><span class="na">python</span><span class="w"> </span><span class="s">./code/week_1/docker/automatic_ingestion/data_ingest.py  </span>\
 <span class="w">  </span><span class="s">--user=root </span>\
