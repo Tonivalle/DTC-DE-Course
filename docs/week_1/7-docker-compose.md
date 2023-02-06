@@ -35,6 +35,9 @@ Now we can call `docker-compose` to spin up all these services:
 ```properties
 docker-compose -f ./code/week_1/docker/automatic_ingestion/docker-compose.yml up
 ```
+
+![docker-compose](./images/docker-compose.png)
+
 !!! tip
     You only need the `-f` flag if your `docker-compose.yaml` is not no your current directory.
 
