@@ -1,0 +1,916 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Antonio Vallejo">
+      
+      
+      
+        <link rel="prev" href="../7-docker-compose/">
+      
+      
+      <link rel="icon" href="../../default/rocket-24.svg">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>Setting up the Environment on Google Cloud (Cloud VM + SSH access) - DTC-DE-Course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setting-up-the-environment-on-google-cloud-cloud-vm-ssh-access" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DTC-DE-Course" class="md-header__button md-logo" aria-label="DTC-DE-Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.322.75h1.176a1.75 1.75 0 0 1 1.75 1.749v1.177a10.75 10.75 0 0 1-2.925 7.374l-1.228 1.304a23.699 23.699 0 0 1-1.596 1.542v5.038c0 .615-.323 1.184-.85 1.5l-4.514 2.709a.75.75 0 0 1-1.12-.488l-.963-4.572a1.305 1.305 0 0 1-.14-.129L8.04 15.96l-1.994-1.873a1.305 1.305 0 0 1-.129-.14l-4.571-.963a.75.75 0 0 1-.49-1.12l2.71-4.514c.316-.527.885-.85 1.5-.85h5.037a23.668 23.668 0 0 1 1.542-1.594l1.304-1.23A10.753 10.753 0 0 1 20.321.75Zm-6.344 4.018v-.001l-1.304 1.23a22.275 22.275 0 0 0-3.255 3.851l-2.193 3.29 1.859 1.744a.545.545 0 0 1 .034.034l1.743 1.858 3.288-2.192a22.263 22.263 0 0 0 3.854-3.257l1.228-1.303a9.251 9.251 0 0 0 2.517-6.346V2.5a.25.25 0 0 0-.25-.25h-1.177a9.252 9.252 0 0 0-6.344 2.518ZM6.5 21c-1.209 1.209-3.901 1.445-4.743 1.49a.236.236 0 0 1-.18-.067.236.236 0 0 1-.067-.18c.045-.842.281-3.534 1.49-4.743.9-.9 2.6-.9 3.5 0 .9.9.9 2.6 0 3.5Zm-.592-8.588L8.17 9.017c.23-.346.47-.685.717-1.017H5.066a.25.25 0 0 0-.214.121l-2.167 3.612ZM16 15.112c-.333.248-.672.487-1.018.718l-3.393 2.262.678 3.223 3.612-2.167a.25.25 0 0 0 .121-.214ZM17.5 8a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 17.5 8Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DTC-DE-Course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setting up the Environment on Google Cloud (Cloud VM + SSH access)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Tonivalle/DTC-DE-Course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tonivalle/DTC-DE-Course
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DTC-DE-Course" class="md-nav__button md-logo" aria-label="DTC-DE-Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.322.75h1.176a1.75 1.75 0 0 1 1.75 1.749v1.177a10.75 10.75 0 0 1-2.925 7.374l-1.228 1.304a23.699 23.699 0 0 1-1.596 1.542v5.038c0 .615-.323 1.184-.85 1.5l-4.514 2.709a.75.75 0 0 1-1.12-.488l-.963-4.572a1.305 1.305 0 0 1-.14-.129L8.04 15.96l-1.994-1.873a1.305 1.305 0 0 1-.129-.14l-4.571-.963a.75.75 0 0 1-.49-1.12l2.71-4.514c.316-.527.885-.85 1.5-.85h5.037a23.668 23.668 0 0 1 1.542-1.594l1.304-1.23A10.753 10.753 0 0 1 20.321.75Zm-6.344 4.018v-.001l-1.304 1.23a22.275 22.275 0 0 0-3.255 3.851l-2.193 3.29 1.859 1.744a.545.545 0 0 1 .034.034l1.743 1.858 3.288-2.192a22.263 22.263 0 0 0 3.854-3.257l1.228-1.303a9.251 9.251 0 0 0 2.517-6.346V2.5a.25.25 0 0 0-.25-.25h-1.177a9.252 9.252 0 0 0-6.344 2.518ZM6.5 21c-1.209 1.209-3.901 1.445-4.743 1.49a.236.236 0 0 1-.18-.067.236.236 0 0 1-.067-.18c.045-.842.281-3.534 1.49-4.743.9-.9 2.6-.9 3.5 0 .9.9.9 2.6 0 3.5Zm-.592-8.588L8.17 9.017c.23-.346.47-.685.717-1.017H5.066a.25.25 0 0 0-.214.121l-2.167 3.612ZM16 15.112c-.333.248-.672.487-1.018.718l-3.393 2.262.678 3.223 3.612-2.167a.25.25 0 0 0 .121-.214ZM17.5 8a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 17.5 8Z"/></svg>
+
+    </a>
+    DTC-DE-Course
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Tonivalle/DTC-DE-Course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tonivalle/DTC-DE-Course
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Week 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Week 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-google-cloud/" class="md-nav__link">
+        Google Cloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-postgres/" class="md-nav__link">
+        Postgres
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-networks/" class="md-nav__link">
+        Networks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6-automatic-ingestion/" class="md-nav__link">
+        Automatic Ingestion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7-docker-compose/" class="md-nav__link">
+        Docker-Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Setting up the Environment on Google Cloud (Cloud VM + SSH access)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Setting up the Environment on Google Cloud (Cloud VM + SSH access)
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-vm-instance" class="md-nav__link">
+    Create a VM Instance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#work-with-the-vm-inside-vscode" class="md-nav__link">
+    Work with the VM inside VSCode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-environment" class="md-nav__link">
+    Configure the Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure the Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyenv" class="md-nav__link">
+    Pyenv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poetry" class="md-nav__link">
+    Poetry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker-compose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-forwarding" class="md-nav__link">
+    Port Forwarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ingesting-the-data" class="md-nav__link">
+    Ingesting the data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-terraform-to-the-vm" class="md-nav__link">
+    Adding terraform to the VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-the-service-account-to-the-vm" class="md-nav__link">
+    Adding the service account to the VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-terraform-on-the-vm" class="md-nav__link">
+    Using terraform on the VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-the-vm" class="md-nav__link">
+    Stop the VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info-on-shh-keys" class="md-nav__link">
+    Info on shh keys
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-vm-instance" class="md-nav__link">
+    Create a VM Instance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#work-with-the-vm-inside-vscode" class="md-nav__link">
+    Work with the VM inside VSCode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-environment" class="md-nav__link">
+    Configure the Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure the Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyenv" class="md-nav__link">
+    Pyenv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poetry" class="md-nav__link">
+    Poetry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker-compose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-forwarding" class="md-nav__link">
+    Port Forwarding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ingesting-the-data" class="md-nav__link">
+    Ingesting the data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-terraform-to-the-vm" class="md-nav__link">
+    Adding terraform to the VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-the-service-account-to-the-vm" class="md-nav__link">
+    Adding the service account to the VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-terraform-on-the-vm" class="md-nav__link">
+    Using terraform on the VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-the-vm" class="md-nav__link">
+    Stop the VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info-on-shh-keys" class="md-nav__link">
+    Info on shh keys
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="setting-up-the-environment-on-google-cloud-cloud-vm-ssh-access">Setting up the Environment on Google Cloud (Cloud VM + SSH access)</h1>
+<p>We will need a <strong>VM instance</strong> in Google Cloud that contains everything we need for the project. </p>
+<h2 id="create-a-vm-instance">Create a VM Instance</h2>
+<p>First we generate an ssh key to connect following <a href="https://cloud.google.com/compute/docs/connect/create-ssh-keys">the documentation</a>.</p>
+<p>The command for MacOS is:
+<div class="highlight"><pre><span></span><code><span class="na">ssh-keygen</span><span class="w"> </span><span class="s">-t rsa -f ~/.ssh/gcp -C tonivalle -b 2048</span>
+</code></pre></div>
+This will generate two ssh keys, one public and on private, inside <code>~/.ssh</code>. Fore more info on ssh keys, click <a href="#info-on-shh-keys">here</a>.</p>
+<p>Go to <code>Menu Bar &gt; Compute Engine &gt; Metadata</code>:</p>
+<p><img alt="cloud-metadata" src="../images/cloud-metadata.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You may need to enable the Compute Engine API (<code>Menu Bar &gt; Compute Engine</code>) to be allowed to add the ssh key and otherwise use this functionality.</p>
+</div>
+<p>In the <code>ssh keys</code> tab you will need to add your <strong>public key</strong>. All the VM instances you create will inherit these keys.
+To see the ssh key you can use 
+<div class="highlight"><pre><span></span><code><span class="na">cat</span><span class="w"> </span><span class="s">~/.ssh/gcp.pub</span>
+</code></pre></div></p>
+<p>Go to <code>Menu Bar &gt; Compute Engine &gt; VM Instances</code>:</p>
+<p><img alt="cloud-vm-instances" src="../images/cloud-vm-instances.png" /></p>
+<p>You can click on <code>Create Instance</code>and add the configuration depending on your location:
+<img alt="cloud-vm-config" src="../images/cloud-vm-config.png" /></p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>We are using a machine of type <code>e2-standard-4 (4 vCPU, 16 GB memory)</code> which costs $0.16 per hour. It is important to shut down the VM when we are not working to not pay more than it is needed.</p>
+</div>
+<p>On boot disk we will use Ubuntu 20.04 with 30 GB of memory
+<img alt="cloud-vm-boot" src="../images/cloud-vm-boot.png" /></p>
+<p>Now we can connect to the VM via:
+<div class="highlight"><pre><span></span><code><span class="na">ssh</span><span class="w"> </span><span class="s">-i ~/.ssh/gcp &lt;Username inside your key&gt;@&lt;Public IP of your VM&gt;</span>
+</code></pre></div></p>
+<p>Another way to connect is to use a ssh config file:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Create the ssh config</label><label for="__tabbed_1_2">Fill the config info</label><label for="__tabbed_1_3">Connect to the VM</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="na">touch</span><span class="w">  </span><span class="s">~/.ssh/config</span>
+<span class="na">code</span><span class="w">  </span><span class="s">~/.ssh/config</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="na">Host</span><span class="w"> </span><span class="s">&lt;Name of your VM&gt;</span>
+<span class="na">HostName</span><span class="w"> </span><span class="s">&lt;Public IP of your VM&gt;</span>
+<span class="na">User</span><span class="w"> </span><span class="s">&lt;Username inside your key&gt;</span>
+<span class="na">IdentityFile</span><span class="w"> </span><span class="s">~/.ssh/gcp</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="na">ssh</span><span class="w"> </span><span class="s">&lt;Name of your VM&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="work-with-the-vm-inside-vscode">Work with the VM inside VSCode</h2>
+<p>To allow editing files via <em>ssh</em> we can install the VSCode <code>Remote - SSH</code> Extension. Now, if we click on this button on the bottom left:</p>
+<p><img alt="ssh-connect" src="../images/ssh-connect.png" /></p>
+<p>We can use <em>ssh</em> inside VSCode.</p>
+<p>On the VM we will use:</p>
+<h2 id="configure-the-environment">Configure the Environment</h2>
+<div class="highlight"><pre><span></span><code><span class="na">sudo</span><span class="w"> </span><span class="s">apt update</span>
+<span class="na">sudo</span><span class="w"> </span><span class="s">apt install python3 python3-dev python3-venv</span>
+<span class="na">sudo</span><span class="w"> </span><span class="s">apt-get install wget</span>
+<span class="na">wget</span><span class="w"> </span><span class="s">https://bootstrap.pypa.io/get-pip.py</span>
+<span class="na">sudo</span><span class="w"> </span><span class="s">python3 get-pip.py</span>
+<span class="na">sudo</span><span class="w"> </span><span class="s">apt-get install docker.io</span>
+</code></pre></div>
+<p>We can use docker without having to type <em>sudo</em> every time if we run these commands (You will need to log out of ssh and back in for the membership to aply):
+<div class="highlight"><pre><span></span><code><span class="na">sudo</span><span class="w"> </span><span class="s">groupadd docker</span>
+<span class="na">sudo</span><span class="w"> </span><span class="s">gpasswd -a $USER docker</span>
+<span class="na">sudo</span><span class="w"> </span><span class="s">service docker restart</span>
+</code></pre></div></p>
+<h3 id="pyenv">Pyenv</h3>
+<p>To configure pyenv (not needed but always a good idea) we can do:
+<div class="highlight"><pre><span></span><code><span class="na">curl</span><span class="w"> </span><span class="s">https://pyenv.run | bash</span>
+
+<span class="na">sudo</span><span class="w"> </span><span class="s">apt update; sudo apt install build-essential libssl-dev zlib1g-dev </span>\
+<span class="s">libbz2-dev libreadline-dev libsqlite3-dev curl </span>\
+<span class="s">libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev</span>
+</code></pre></div>
+And add this to our <em>.bashrc</em> and restart the shell:
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&quot;</span>
+<span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>pyenv<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>pyenv<span class="w"> </span>init<span class="w"> </span>-<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+Execute now:
+<div class="highlight"><pre><span></span><code><span class="na">pyenv</span><span class="w"> </span><span class="s">install 3.9.5</span>
+<span class="na">pyenv</span><span class="w"> </span><span class="s">global 3.9.5</span>
+</code></pre></div></p>
+<h3 id="poetry">Poetry</h3>
+<p>We can install the package's dependencies via poetry like in our local machine:
+<div class="highlight"><pre><span></span><code><span class="na">pip</span><span class="w"> </span><span class="s">install poetry</span>
+<span class="na">poetry</span><span class="w"> </span><span class="s">install</span>
+<span class="na">poetry</span><span class="w"> </span><span class="s">shell</span>
+</code></pre></div></p>
+<h3 id="docker-compose">Docker-compose</h3>
+<p>We need to add docker-compose to the VM. We can do that bu running:
+<div class="highlight"><pre><span></span><code><span class="na">mkdir</span><span class="w"> </span><span class="s">bin</span>
+<span class="na">cd</span><span class="w"> </span><span class="s">bin</span>
+<span class="na">wget</span><span class="w"> </span><span class="s">https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64 -O docker-compose # Change de direction to the latest release of docker-compose for your architecture.</span>
+<span class="na">chmod</span><span class="w"> </span><span class="s">+x docker-compose</span>
+</code></pre></div>
+Now we add it to the .bashrc
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/bin:</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div></p>
+<p>To execute the docker-compose we clone the repo inside our VM and execute it:
+<div class="highlight"><pre><span></span><code><span class="na">docker-compose</span><span class="w"> </span><span class="s">-f ./code/week_1/docker/automatic_ingestion/docker-compose.yml -d up</span>
+</code></pre></div></p>
+<h3 id="port-forwarding">Port Forwarding</h3>
+<p>This technique allows us to connect ports in our VM to our local computer.</p>
+<p>It can be done via this command depending on the direction:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">If your connection is already established</label><label for="__tabbed_2_2">Remote port to localhost</label><label for="__tabbed_2_3">Local port to remote</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1"># Type in the console</span>
+<span class="na">~C</span>
+<span class="na">-R</span><span class="w"> </span><span class="s">8080:localhost:80</span>
+<span class="na">-L</span><span class="w"> </span><span class="s">17125:localhost:12125</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1"># Establish connections with the ports already forwarded</span>
+<span class="na">ssh</span><span class="w"> </span><span class="s">-R [REMOTE:]REMOTE_PORT:DESTINATION:DESTINATION_PORT [USER@]SSH_SERVER</span>
+<span class="c1"># Example</span>
+<span class="na">ssh</span><span class="w"> </span><span class="s">-R 8080:localhost:80 public.example.com</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1"># Establish connections with the ports already forwarded</span>
+<span class="na">ssh</span><span class="w"> </span><span class="s">-L [LOCAL_IP:]LOCAL_PORT:DESTINATION:DESTINATION_PORT [USER@]SSH_SERVER</span>
+<span class="c1"># Example</span>
+<span class="na">ssh</span><span class="w"> </span><span class="s">-L 3336:db001.host:3306 user@pub001.host</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can use VSCode to manage it for you:</p>
+<p><img alt="port-forward" src="../images/port-forward.png" /></p>
+<p>With this configuration, we can access the database on the VM in our local command line without having to connect via <em>ssh</em>.
+<div class="highlight"><pre><span></span><code><span class="na">pgcli</span><span class="w"> </span><span class="s">-h 127.0.0.1 -p 5432 -U root -d ny_taxi</span>
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice we changed the host (<code>-h</code>) from <strong>localhost</strong> to <strong>127.0.0.1</strong></p>
+</div>
+<p>Connecting to <code>http://localhost:8080/</code> lets us see <strong>pgAdmin</strong> like if it was running on our machine.</p>
+<p>If we also forward port <code>8888</code> we can see jupyter notebooks started on our VM in our local browser (You may need to copy the url in the VM's console since it includes the <strong>token</strong>).</p>
+<h3 id="ingesting-the-data">Ingesting the data</h3>
+<p>We can run the data ingestion pipeline by using:</p>
+<div class="highlight"><pre><span></span><code><span class="na">docker</span><span class="w"> </span><span class="s">build -t taxi_ingest:v0.0.1 ./code/week_1/docker/automatic_ingestion</span>
+
+<span class="hll"><span class="na">docker</span><span class="w"> </span><span class="s">run -it --network=automatic_ingestion_default taxi_ingest:v0.0.1 </span>\
+</span><span class="w">   </span><span class="s">--user=root </span>\
+<span class="w">   </span><span class="s">--password=root </span>\
+<span class="w">   </span><span class="s">--host=pg-database </span>\
+<span class="w">   </span><span class="s">--port=5432 </span>\
+<span class="w">   </span><span class="s">--db=ny_taxi </span>\
+<span class="w">   </span><span class="s">--table_name=yellow_taxi_trips </span>\
+<span class="w">   </span><span class="s">--url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As always, the network name needs to be the same as your other containers in the network.</p>
+</div>
+<h3 id="adding-terraform-to-the-vm">Adding terraform to the VM</h3>
+<p>We can add terraform to the VM:
+<div class="highlight"><pre><span></span><code><span class="na">wget</span><span class="w"> </span><span class="s">-O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg</span>
+<span class="na">echo</span><span class="w"> </span><span class="s">&quot;deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/hashicorp.list</span>
+<span class="na">sudo</span><span class="w"> </span><span class="s">apt update &amp;&amp; sudo apt install terraform</span>
+</code></pre></div></p>
+<h3 id="adding-the-service-account-to-the-vm">Adding the service account to the VM</h3>
+<p>We created a service account in the <strong><a href="../1-google-cloud/">first section</a></strong> of the week's folder.</p>
+<p>To do this we can use <strong>SFTP</strong> (Secure File Transfer Protocol) to do it. The json file for the service account was inside <code>$HOME/.config/gcloud/</code> in our case.</p>
+<p><div class="highlight"><pre><span></span><code><span class="na">cd</span><span class="w"> </span><span class="s">$HOME/.config/gcloud/</span>
+
+<span class="c1"># This will open an sftp console</span>
+<span class="na">sftp</span><span class="w"> </span><span class="s">dte-vm</span>
+
+<span class="na">mkdir</span><span class="w"> </span><span class="s">.gc</span>
+<span class="na">cd</span><span class="w"> </span><span class="s">.gc</span>
+<span class="na">put</span><span class="w"> </span><span class="s">&lt;Name of your key&gt;.json</span>
+</code></pre></div>
+With this your key should be inside your VM.</p>
+<p>We will need to set this google application credential since we cant <em>OAUTH</em> from the VM.
+<div class="highlight"><pre><span></span><code><span class="na">export</span><span class="w"> </span><span class="s">GOOGLE_APPLICATION_CREDENTIALS=~/.gc/&lt;Name of your key&gt;.json</span>
+<span class="na">gcloud</span><span class="w"> </span><span class="s">auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS</span>
+</code></pre></div></p>
+<h3 id="using-terraform-on-the-vm">Using terraform on the VM</h3>
+<p>We can do the same in here as we did on our local machine. We will need to init, plan and</p>
+<div class="highlight"><pre><span></span><code><span class="na">terraform</span><span class="w"> </span><span class="s">-chdir=./code/week_1/terraform init</span>
+<span class="na">terraform</span><span class="w"> </span><span class="s">-chdir=./code/week_1/terraform plan -var=&quot;project=vast-bounty-142716&quot; # This is your project id</span>
+</code></pre></div>
+<h3 id="stop-the-vm">Stop the VM</h3>
+<p>You can stop the VM via the UI for GCP or using 
+<div class="highlight"><pre><span></span><code><span class="na">sudo</span><span class="w"> </span><span class="s">shutdown</span>
+</code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Whenever you restart the machine you will need to pass the new IP given to your VM to your ~/.ssh/config.</p>
+</div>
+<h2 id="info-on-shh-keys">Info on shh keys</h2>
+<p>via <a href="https://www.ssh.com/academy/ssh/public-key-authentication#:~:text=Private%20key%20stays%20with%20the,have%20the%20corresponding%20private%20key.">ssh.com</a>.</p>
+<p>The following simple steps are required to set up public key authentication (for SSH):</p>
+<ol>
+<li>Private key stays with the user (and only there), while the public key is sent to the server. Typically with the ssh-copy-id utility.</li>
+<li>Server stores the public key (and "marks" it as authorized).</li>
+<li>Server will now allow access to anyone who can prove they have the corresponding private key. </li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>
