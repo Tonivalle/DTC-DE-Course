@@ -29,11 +29,14 @@ theme:
     logo: octicons/rocket-24
   features:
     - content.code.copy
+    - content.tabs.link
 markdown_extensions:
-  - codehilite
   - admonition
-  - tables
   - attr_list
+  - codehilite
+  - def_list
+  - pymdownx.details
+  - tables
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.superfences:

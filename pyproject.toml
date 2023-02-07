@@ -11,12 +11,16 @@ python = ">=3.9,<3.12"
 pgcli = "^3.5.0"
 jupyter = "^1.0.0"
 pandas = "^1.5.3"
-sqlalchemy = "^2.0.1"
 psycopg2-binary = "^2.9.5"
 jupyterthemes = "^0.20.0"
 psycopg = {extras = ["binary"], version = "^3.1.8"}
 pyarrow = "^11.0.0"
 tqdm = "^4.64.1"
+prefect = "^2.7.12"
+prefect-sqlalchemy = "^0.2.2"
+prefect-gcp = {extras = ["cloud-storage"], version = "^0.2.5"}
+pandas-gbq = "^0.19.1"
+greenlet = "^2.0.2"
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^2.15.10"

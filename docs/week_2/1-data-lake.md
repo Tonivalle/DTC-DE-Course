@@ -28,8 +28,9 @@ If there is no METADATA, there is a risk of data becoming unusable, be it from n
 
 Its effectiveness gets restricted if there is no way to _JOIN_, for the lack of a _KEY_ element or the difference in structure or schema.
 
-## Cloud providers' Data Lakes
+## Cloud providers' Data Lakes and Warehouses
 
-| :fontawesome-brands-aws: AWS | :material-google-cloud: GCP  | :material-microsoft-azure: Azure |
-| :---------------: | :--------------------------------------------: | :----: |
-| S3 | Google Cloud Storage | Azure Blob |
+|| :fontawesome-brands-aws: AWS | :material-google-cloud: GCP  | :material-microsoft-azure: Azure |
+|:---------------: | :---------------: | :--------------------------------------------: | :----: |
+| __Data Lake__ | S3 | Google Cloud Storage | Azure Blob |
+| __Data Warehouse__ | Redshift | Google BigQuery | Azure Synapse Analytics |

@@ -24,7 +24,7 @@ test:
 
 .PHONY: type-check
 type-check:
-	poetry run mypy $(SRC_DIR)
+	poetry run mypy --ignore-missing-imports $(SRC_DIR)
 
 .PHONY: serve
 serve:
