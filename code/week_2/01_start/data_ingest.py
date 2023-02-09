@@ -8,8 +8,6 @@ import pyarrow.parquet as parquet
 from prefect import flow, task
 from prefect.tasks import task_input_hash
 from prefect_sqlalchemy import SqlAlchemyConnector
-from sqlalchemy import create_engine
-from sqlalchemy.engine import Engine
 
 
 @flow(name="Ingestion Flow")
@@ -63,13 +61,6 @@ def _download_data(params: Dict) -> str:
 def _generate_df(data_file_route: str) -> pandas.DataFrame:
     data = parquet.read_table(data_file_route)
     return data.to_pandas()
-
-
-@task(name="Create engine")
-def _create_engine(params: Dict) -> Engine:
-    return create_engine(
-        f"postgresql://{params['user']}:{params['password']}@{params['host']}:{params['port']}/{params['db']}"
-    )
 
 
 @task(name="Write to SQL")

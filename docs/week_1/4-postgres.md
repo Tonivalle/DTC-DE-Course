@@ -41,7 +41,7 @@ We will add jupyter and other packages to our environment to explore the data.
 poetry add jupyter pandas sqlalchemy
 ```
 
-Now we will download the dataset, which is the NY taxi dataset, which is a common one for experimenting with data tools. The one used is [this one](https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet).
+Now we will download the dataset, which is the [NY taxi dataset](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page), which is a common one for experimenting with data tools. The one used is [this one](https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet).
 
 ```properties
 curl -O -L --output-dir ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet

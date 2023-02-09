@@ -335,7 +335,7 @@ We will use the class `SqlAlchemyConnector` to give the code access to the data 
 And the call from the command line:
 === "Not Using Blocks"
     ```properties
-    python ./code/week_2/data_ingest.py   --user=root \
+    python ./code/week_2/start/data_ingest.py   --user=root \
     --password=root \
     --host=localhost \
     --port=5432 \
@@ -345,7 +345,7 @@ And the call from the command line:
     ```
 === "Using Blocks"
     ```properties
-    python ./code/week_2/data_ingest.py \
+    python ./code/week_2/start/data_ingest.py \
     --table_name=yellow_taxi_trips \
     --url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
     ```

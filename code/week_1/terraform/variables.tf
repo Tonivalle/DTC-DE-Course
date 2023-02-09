@@ -8,13 +8,19 @@ variable "project" {
 
 variable "region" {
   description = "Region for GCP resources. Choose as per your location: https://cloud.google.com/about/locations"
-  default = "europe-west6"
+  default = "europe-west1"
   type = string
 }
 
 variable "storage_class" {
   description = "Storage class type for your bucket. Check official docs for more info."
   default = "STANDARD"
+}
+
+variable "DATA_LAKE_NAME" {
+  description = "Bucket name"
+  type = string
+  default = "dtc-de-data-lake"
 }
 
 variable "BQ_DATASET" {
