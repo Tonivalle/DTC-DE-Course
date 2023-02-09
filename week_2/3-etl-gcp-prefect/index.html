@@ -11,17 +11,15 @@
       
       
       
-        <link rel="prev" href="../5-networks/">
+        <link rel="prev" href="../2-workflow-orchestration/">
       
-      
-        <link rel="next" href="../7-docker-compose/">
       
       <link rel="icon" href="../../default/rocket-24.svg">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
     
     
       
-        <title>Automatic Ingestion - DTC-DE-Course</title>
+        <title>ETL with GCP & Prefect - DTC-DE-Course</title>
       
     
     
@@ -73,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#automatic-ingestion" class="md-skip">
+        <a href="#etl-with-gcp-prefect" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Automatic Ingestion
+              ETL with GCP & Prefect
             
           </span>
         </div>
@@ -249,16 +247,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
@@ -267,7 +263,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Week 1
@@ -280,7 +276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1-google-cloud/" class="md-nav__link">
+      <a href="../../week_1/1-google-cloud/" class="md-nav__link">
         Google Cloud
       </a>
     </li>
@@ -294,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2-terraform/" class="md-nav__link">
+      <a href="../../week_1/2-terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -308,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3-docker/" class="md-nav__link">
+      <a href="../../week_1/3-docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -322,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4-postgres/" class="md-nav__link">
+      <a href="../../week_1/4-postgres/" class="md-nav__link">
         Postgres
       </a>
     </li>
@@ -336,8 +332,115 @@
   
   
     <li class="md-nav__item">
-      <a href="../5-networks/" class="md-nav__link">
+      <a href="../../week_1/5-networks/" class="md-nav__link">
         Networks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/6-automatic-ingestion/" class="md-nav__link">
+        Automatic Ingestion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/7-docker-compose/" class="md-nav__link">
+        Docker-Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/8-google-cloud-env/" class="md-nav__link">
+        Setting up the Environment on Google Cloud (Cloud VM + SSH access)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Week 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-data-lake/" class="md-nav__link">
+        Data Lake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-workflow-orchestration/" class="md-nav__link">
+        Workflow Orchestration
       </a>
     </li>
   
@@ -360,12 +463,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Automatic Ingestion
+          ETL with GCP & Prefect
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Automatic Ingestion
+        ETL with GCP & Prefect
       </a>
       
         
@@ -384,9 +487,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automating-the-pipeline" class="md-nav__link">
-    Automating the pipeline
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcs-bucket" class="md-nav__link">
+    GCS Bucket
+  </a>
+  
+    <nav class="md-nav" aria-label="GCS Bucket">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gcp-credentials-block" class="md-nav__link">
+    GCP credentials block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cgs-bucket-block" class="md-nav__link">
+    CGS Bucket block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coding-the-pipeline" class="md-nav__link">
+    Coding the pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -394,111 +531,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../7-docker-compose/" class="md-nav__link">
-        Docker-Compose
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../8-google-cloud-env/" class="md-nav__link">
-        Setting up the Environment on Google Cloud (Cloud VM + SSH access)
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Week 2
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Week 2
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../week_2/1-data-lake/" class="md-nav__link">
-        Data Lake
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../week_2/2-workflow-orchestration/" class="md-nav__link">
-        Workflow Orchestration
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../week_2/3-etl-gcp-prefect/" class="md-nav__link">
-        ETL with GCP & Prefect
-      </a>
     </li>
   
 
@@ -537,9 +569,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automating-the-pipeline" class="md-nav__link">
-    Automating the pipeline
+  <a href="#introduction" class="md-nav__link">
+    Introduction
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcs-bucket" class="md-nav__link">
+    GCS Bucket
+  </a>
+  
+    <nav class="md-nav" aria-label="GCS Bucket">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gcp-credentials-block" class="md-nav__link">
+    GCP credentials block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cgs-bucket-block" class="md-nav__link">
+    CGS Bucket block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coding-the-pipeline" class="md-nav__link">
+    Coding the pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -562,53 +628,71 @@
 
 
 
-<h1 id="automatic-ingestion">Automatic Ingestion</h1>
-<h2 id="automating-the-pipeline">Automating the pipeline</h2>
-<p>We are going to refactor the code to automate the ingestion of data into the database.</p>
-<p>The command to test the pipeline is:
-<div class="highlight"><pre><span></span><code><span class="na">python</span><span class="w"> </span><span class="s">./code/week_1/docker/automatic_ingestion/data_ingest.py  </span>\
-<span class="w">  </span><span class="s">--user=root </span>\
-<span class="w">  </span><span class="s">--password=root </span>\
-<span class="w">  </span><span class="s">--host=localhost </span>\
-<span class="w">  </span><span class="s">--port=5432 </span>\
-<span class="w">  </span><span class="s">--db=ny_taxi </span>\
-<span class="w">  </span><span class="s">--table_name=yellow_taxi_trips </span>\
-<span class="w">  </span><span class="s">--url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
+<h1 id="etl-with-gcp-prefect">ETL with GCP &amp; Prefect</h1>
+<h2 id="introduction">Introduction</h2>
+<p>We are going to create an ETL pipeline to automatically ingest our data into Google Cloud Storage.</p>
+<p>We need to already have the <strong>infrastructure up</strong> to perform the operations.</p>
+<h2 id="gcs-bucket">GCS Bucket</h2>
+<p>We start the prefect UI with <code>prefect orion start</code>. Here, we can create a <code>GCS Bucket</code> block. before we create we register the kind of block by:
+<div class="highlight"><pre><span></span><code><span class="na">prefect</span><span class="w"> </span><span class="s">block register -m prefect_gcp</span>
 </code></pre></div></p>
-<p>We create the image for the container using the following command and docker file:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Console</label><label for="__tabbed_1_2">Dockerfile</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="na">docker</span><span class="w"> </span><span class="s">build -t taxi_ingest:v0.0.1 ./code/week_1/docker/automatic_ingestion</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9.1</span>
+<h3 id="gcp-credentials-block">GCP credentials block</h3>
+<p>To use the service account we generated in <em>week_1</em> we can use a <code>GCP Credentials Block</code> to store the credential info.</p>
+<p><img alt="credentials-block" src="../images/credentials-block.png" /></p>
+<h3 id="cgs-bucket-block">CGS Bucket block</h3>
+<p>We can put the credentials block we just created in a GCS Bucket block:</p>
+<p><img alt="bucket-block" src="../images/bucket-block.png" /></p>
+<h3 id="coding-the-pipeline">Coding the pipeline</h3>
+<p>Now we can put these blocks into our code! We will refactor the pipeline to use these classes. Right now we arent transforming the data after ingestion, but in the future we can add functions before the loading!</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
-<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>pyarrow<span class="w"> </span>sqlalchemy<span class="w"> </span>psycopg2-binary
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">prefect</span> <span class="kn">import</span> <span class="n">flow</span><span class="p">,</span> <span class="n">task</span>
+<span class="kn">from</span> <span class="nn">prefect.tasks</span> <span class="kn">import</span> <span class="n">task_input_hash</span>
+<span class="kn">from</span> <span class="nn">prefect_gcp.cloud_storage</span> <span class="kn">import</span> <span class="n">GcsBucket</span>
 
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-<span class="k">COPY</span><span class="w"> </span>data_ingest.py<span class="w"> </span>data_ingest.py
 
-<span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;data_ingest.py&quot;</span><span class="p">]</span>
+<span class="nd">@flow</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">etl_web_to_gcs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main ETL Function&quot;&quot;&quot;</span>
+    <span class="n">COLOR</span> <span class="o">=</span> <span class="s2">&quot;yellow&quot;</span>
+    <span class="n">YEAR</span> <span class="o">=</span> <span class="mi">2022</span>
+    <span class="n">MONTH</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">dataset_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">COLOR</span><span class="si">}</span><span class="s2">_tripdata_</span><span class="si">{</span><span class="n">YEAR</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">MONTH</span><span class="si">:</span><span class="s2">02</span><span class="si">}</span><span class="s2">.parquet&quot;</span>
+    <span class="n">dataset_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://d37ci6vzurychx.cloudfront.net/trip-data/</span><span class="si">{</span><span class="n">dataset_file</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">dataset_url</span><span class="p">)</span>
+    <span class="n">data_file_path</span> <span class="o">=</span> <span class="n">write_local</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR</span><span class="p">,</span> <span class="n">dataset_file</span><span class="o">=</span><span class="n">dataset_file</span><span class="p">)</span>
+    <span class="n">write_gcs</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">data_file_path</span><span class="p">)</span>
+
+
+<span class="nd">@task</span><span class="p">(</span><span class="n">cache_key_fn</span><span class="o">=</span><span class="n">task_input_hash</span><span class="p">,</span> <span class="n">cache_expiration</span><span class="o">=</span><span class="n">timedelta</span><span class="p">(</span><span class="n">weeks</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="nd">@task</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">write_local</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dataset_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write DataFrame out locally as parquet file&quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">dataset_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s2">&quot;gzip&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">path</span>
+
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">write_gcs</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Upload local parquet file to GCS&quot;&quot;&quot;</span>
+    <span class="n">gcs_block</span> <span class="o">=</span> <span class="n">GcsBucket</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;dte-bucket-block&quot;</span><span class="p">)</span>
+    <span class="n">gcs_block</span><span class="o">.</span><span class="n">upload_from_path</span><span class="p">(</span><span class="n">from_path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">to_path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">etl_web_to_gcs</span><span class="p">()</span>
 </code></pre></div>
-</div>
-</div>
-</div>
-<p>This allows us to run this container with the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="hll"><span class="na">docker</span><span class="w"> </span><span class="s">run -it --network=pg-network taxi_ingest:v0.0.1 </span>\
-</span><span class="w">  </span><span class="s">--user=root</span>\
-<span class="w">  </span><span class="s">--password=root </span>\
-<span class="hll"><span class="w">  </span><span class="s">--host=pg-database </span>\
-</span><span class="w">  </span><span class="s">--port=5432 </span>\
-<span class="w">  </span><span class="s">--db=ny_taxi </span>\
-<span class="w">  </span><span class="s">--table_name=yellow_taxi_trips </span>\
-<span class="w">  </span><span class="s">--url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Be careful to add the network (so the containers can see each other) and change the <code>--host</code> to <code>pg-database</code> since the hostname of the container is not <code>localhost</code> (our computer) anymore but <code>pg-database</code>.</p>
-</div>
 
 
 

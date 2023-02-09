@@ -459,6 +459,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_2/3-etl-gcp-prefect/" class="md-nav__link">
+        ETL with GCP & Prefect
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -536,7 +550,7 @@ This allows us to use commands on the container.
 <p>We will add jupyter and other packages to our environment to explore the data.
 <div class="highlight"><pre><span></span><code><span class="na">poetry</span><span class="w"> </span><span class="s">add jupyter pandas sqlalchemy</span>
 </code></pre></div></p>
-<p>Now we will download the dataset, which is the NY taxi dataset, which is a common one for experimenting with data tools. The one used is <a href="https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet">this one</a>.</p>
+<p>Now we will download the dataset, which is the <a href="https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page">NY taxi dataset</a>, which is a common one for experimenting with data tools. The one used is <a href="https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet">this one</a>.</p>
 <p><div class="highlight"><pre><span></span><code><span class="na">curl</span><span class="w"> </span><span class="s">-O -L --output-dir ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
 </code></pre></div>
 or

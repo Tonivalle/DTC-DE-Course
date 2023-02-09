@@ -14,6 +14,8 @@
         <link rel="prev" href="../1-data-lake/">
       
       
+        <link rel="next" href="../3-etl-gcp-prefect/">
+      
       <link rel="icon" href="../../default/rocket-24.svg">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
     
@@ -516,6 +518,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-etl-gcp-prefect/" class="md-nav__link">
+        ETL with GCP & Prefect
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -931,7 +947,7 @@ And now we can start the service:
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Not Using Blocks</label><label for="__tabbed_2_2">Using Blocks</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="na">python</span><span class="w"> </span><span class="s">./code/week_2/data_ingest.py   --user=root </span>\
+<div class="highlight"><pre><span></span><code><span class="na">python</span><span class="w"> </span><span class="s">./code/week_2/start/data_ingest.py   --user=root </span>\
 <span class="s">--password=root </span>\
 <span class="s">--host=localhost </span>\
 <span class="s">--port=5432 </span>\
@@ -941,7 +957,7 @@ And now we can start the service:
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="na">python</span><span class="w"> </span><span class="s">./code/week_2/data_ingest.py </span>\
+<div class="highlight"><pre><span></span><code><span class="na">python</span><span class="w"> </span><span class="s">./code/week_2/start/data_ingest.py </span>\
 <span class="s">--table_name=yellow_taxi_trips </span>\
 <span class="s">--url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
 </code></pre></div>
