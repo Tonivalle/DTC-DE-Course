@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "dtc-de-course"
+name = "dtc_de_course"
 version = "0.1.0"
 description = ""
 authors = ["Antonio <tonivalle15@gmail.com>"]

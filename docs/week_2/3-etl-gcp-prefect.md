@@ -149,10 +149,10 @@ We can load the data to __BigQuery__ following this example:
 
     if __name__ == "__main__":
         etl_gcs_to_bq()
-
     ```
 
 
 Additionally, you can add data from GCS to BigQuery directly through the UI:
 
 ![add-table](./images/add-table.gif)
+

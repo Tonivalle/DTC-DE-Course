@@ -33,7 +33,7 @@ services:
 
 Now we can call `docker-compose` to spin up all these services:
 ```properties
-docker-compose -f ./code/week_1/docker/automatic_ingestion/docker-compose.yml up
+docker-compose -f ./src/dtc_de_course/week_1/docker/automatic_ingestion/docker-compose.yml up
 ```
 
 ![docker-compose](./images/docker-compose.png)

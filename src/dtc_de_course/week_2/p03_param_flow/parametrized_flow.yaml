@@ -1,0 +1,63 @@
+###
+### A complete description of a Prefect Deployment for flow 'etl-multiple-dates'
+###
+name: Parametrized ETL
+description: null
+version: f261a8867571f9ee3d66c85cb8485bbf
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: null
+tags: []
+parameters:
+  months:
+  - 3
+  - 4
+  - 5
+schedule: null
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: etl-multiple-dates
+manifest_path: null
+storage: null
+path: /Users/antoniofernandez/Projects/DTC-DE-Course
+entrypoint: code/week_2/03_param_flow/parametrized_flow.py:etl_multiple_dates
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    months:
+      title: months
+      default:
+      - 1
+      - 2
+      position: 0
+      type: array
+      items:
+        type: integer
+    year:
+      title: year
+      default: 2022
+      position: 1
+      type: integer
+    color:
+      title: color
+      default: yellow
+      position: 2
+      type: string
+  required: null
+  definitions: null
+timestamp: '2023-02-10T15:29:41.941440+00:00'

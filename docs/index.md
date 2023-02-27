@@ -5,7 +5,7 @@ https://github.com/DataTalksClub/data-engineering-zoomcamp
 
 ## Roadmap
 * [x] [Week 1: Introduction & Prerequisites](week_1/1-google-cloud.md)<br>
-* [ ] Week 2: Workflow Orchestration<br>
+* [x] [Week 2: Workflow Orchestration](week_2/1-data-lake.md)<br>
 * [ ] Week 3: Data Warehouse<br>
 * [ ] Week 4: Analytics engineering<br>
 * [ ] Week 5: Batch processing<br>

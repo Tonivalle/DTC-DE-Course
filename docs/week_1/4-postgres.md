@@ -44,14 +44,14 @@ poetry add jupyter pandas sqlalchemy
 Now we will download the dataset, which is the [NY taxi dataset](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page), which is a common one for experimenting with data tools. The one used is [this one](https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet).
 
 ```properties
-curl -O -L --output-dir ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+curl -O -L --output-dir ./src/dtc_de_course/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
 ```
 or
 ```properties
-wget -p ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+wget -p ./src/dtc_de_course/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
 ```
 
-We load this data into Postgres with the code inside [this notebook](../../code/week_1/docker/postgres/data_to_postgres.ipynb).
+We load this data into Postgres with the code inside [this notebook](https://github.com/Tonivalle/DTC-DE-Course/blob/main/code/week_1/docker/postgres/data_to_postgres.ipynb).
 
 To see the data and interact with it we are going to use pgAdmin inside a docker container, wich we will be able to see in our browser at `http://localhost:8080/`.
 

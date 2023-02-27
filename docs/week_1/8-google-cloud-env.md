@@ -131,7 +131,7 @@ export PATH="${HOME}/bin:${PATH}"
 
 To execute the docker-compose we clone the repo inside our VM and execute it:
 ```properties
-docker-compose -f ./code/week_1/docker/automatic_ingestion/docker-compose.yml -d up
+docker-compose -f ./src/dtc_de_course/week_1/docker/automatic_ingestion/docker-compose.yml -d up
 ```
 
 ### Port Forwarding
@@ -183,7 +183,7 @@ If we also forward port `8888` we can see jupyter notebooks started on our VM in
 We can run the data ingestion pipeline by using:
 
 ```properties hl_lines="3"
-docker build -t taxi_ingest:v0.0.1 ./code/week_1/docker/automatic_ingestion
+docker build -t taxi_ingest:v0.0.1 ./src/dtc_de_course/week_1/docker/automatic_ingestion
 
 docker run -it --network=automatic_ingestion_default taxi_ingest:v0.0.1 \
    --user=root \
@@ -231,8 +231,8 @@ gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 We can do the same in here as we did on our local machine. We will need to init, plan and
 
 ```properties
-terraform -chdir=./code/week_1/terraform init
-terraform -chdir=./code/week_1/terraform plan -var="project=vast-bounty-142716" # This is your project id
+terraform -chdir=./src/dtc_de_course/week_1/terraform init
+terraform -chdir=./src/dtc_de_course/week_1/terraform plan -var="project=vast-bounty-142716" # This is your project id
 ```
 
 ### Stop the VM

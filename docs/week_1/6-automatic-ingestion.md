@@ -6,7 +6,7 @@ We are going to refactor the code to automate the ingestion of data into the dat
 
 The command to test the pipeline is:
 ```properties
-python ./code/week_1/docker/automatic_ingestion/data_ingest.py  \
+python ./src/dtc_de_course/week_1/docker/automatic_ingestion/data_ingest.py  \
   --user=root \
   --password=root \
   --host=localhost \
@@ -21,7 +21,7 @@ We create the image for the container using the following command and docker fil
 === "Console"
 
     ```properties
-    docker build -t taxi_ingest:v0.0.1 ./code/week_1/docker/automatic_ingestion
+    docker build -t taxi_ingest:v0.0.1 ./src/dtc_de_course/week_1/docker/automatic_ingestion
     ```
 
 === "Dockerfile"

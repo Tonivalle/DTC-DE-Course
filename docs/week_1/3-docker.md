@@ -138,3 +138,17 @@ docker run -it test:pandas 20-02-2003
 ```
 
 ![docker-cheat](./images/dockercheatsheet.png)
+
+## Docker hub 
+
+Docker hub is a service that can host your images. To use it you need to create an account and then do:
+
+```properties
+# First we login on docker
+docker login
+
+# Now we push the image
+docker image push <username>/<repository>:<tag>
+#For example:
+docker image push tonivalle/prefect:etl_deploy
+```
