@@ -19,6 +19,14 @@ A data Lake is a __storage repository__ that holds a vast amount of raw data in 
 |__ELT__ (Extract, Load, Transform). In this process, the data is extracted from its source for storage in the data lake, and structured only when needed.<br>Useful for large amounts of data.|__ETL__ (Extract, Transform, Load). In this process, data is extracted from its source(s), scrubbed, then structured so it's ready for business-end analysis.<br>Better for smaller amounts of data.|
 |Usualy inexpensive and easier to maintain.|More costly and requires more management.|
 
+### ETL vs. ELT
+
+![etl_elt](./images/etl_elt.png)
+
+ETL usually presents more stable data at the price of higher costs. Usually done for Data Warehouses.
+
+ELT increases the size of data stored but the processing is done when needed and inside the storage system which lowers the number of computations performed. Prefered pipeline for Data Lakes.
+
 ## Problems of Data Lake
 One of the problems is the conversion of a Data Lake into a Data Swamp. It is a collection point for a lot of miscellaneous data that no longer has any sort of structure and the result of poor data management and governance.
 
