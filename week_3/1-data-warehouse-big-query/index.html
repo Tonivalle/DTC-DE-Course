@@ -1,0 +1,1145 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Antonio Vallejo">
+      
+      
+      
+        <link rel="prev" href="../../week_2/5-prefect-docker/">
+      
+      
+        <link rel="next" href="../2-ml-big-query/">
+      
+      <link rel="icon" href="../../default/rocket-24.svg">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
+    
+    
+      
+        <title>Data warehouse & Big Query - DTC-DE-Course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-warehouse-big-query" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DTC-DE-Course" class="md-header__button md-logo" aria-label="DTC-DE-Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.322.75h1.176a1.75 1.75 0 0 1 1.75 1.749v1.177a10.75 10.75 0 0 1-2.925 7.374l-1.228 1.304a23.699 23.699 0 0 1-1.596 1.542v5.038c0 .615-.323 1.184-.85 1.5l-4.514 2.709a.75.75 0 0 1-1.12-.488l-.963-4.572a1.305 1.305 0 0 1-.14-.129L8.04 15.96l-1.994-1.873a1.305 1.305 0 0 1-.129-.14l-4.571-.963a.75.75 0 0 1-.49-1.12l2.71-4.514c.316-.527.885-.85 1.5-.85h5.037a23.668 23.668 0 0 1 1.542-1.594l1.304-1.23A10.753 10.753 0 0 1 20.321.75Zm-6.344 4.018v-.001l-1.304 1.23a22.275 22.275 0 0 0-3.255 3.851l-2.193 3.29 1.859 1.744a.545.545 0 0 1 .034.034l1.743 1.858 3.288-2.192a22.263 22.263 0 0 0 3.854-3.257l1.228-1.303a9.251 9.251 0 0 0 2.517-6.346V2.5a.25.25 0 0 0-.25-.25h-1.177a9.252 9.252 0 0 0-6.344 2.518ZM6.5 21c-1.209 1.209-3.901 1.445-4.743 1.49a.236.236 0 0 1-.18-.067.236.236 0 0 1-.067-.18c.045-.842.281-3.534 1.49-4.743.9-.9 2.6-.9 3.5 0 .9.9.9 2.6 0 3.5Zm-.592-8.588L8.17 9.017c.23-.346.47-.685.717-1.017H5.066a.25.25 0 0 0-.214.121l-2.167 3.612ZM16 15.112c-.333.248-.672.487-1.018.718l-3.393 2.262.678 3.223 3.612-2.167a.25.25 0 0 0 .121-.214ZM17.5 8a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 17.5 8Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DTC-DE-Course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data warehouse & Big Query
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Tonivalle/DTC-DE-Course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tonivalle/DTC-DE-Course
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DTC-DE-Course" class="md-nav__button md-logo" aria-label="DTC-DE-Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.322.75h1.176a1.75 1.75 0 0 1 1.75 1.749v1.177a10.75 10.75 0 0 1-2.925 7.374l-1.228 1.304a23.699 23.699 0 0 1-1.596 1.542v5.038c0 .615-.323 1.184-.85 1.5l-4.514 2.709a.75.75 0 0 1-1.12-.488l-.963-4.572a1.305 1.305 0 0 1-.14-.129L8.04 15.96l-1.994-1.873a1.305 1.305 0 0 1-.129-.14l-4.571-.963a.75.75 0 0 1-.49-1.12l2.71-4.514c.316-.527.885-.85 1.5-.85h5.037a23.668 23.668 0 0 1 1.542-1.594l1.304-1.23A10.753 10.753 0 0 1 20.321.75Zm-6.344 4.018v-.001l-1.304 1.23a22.275 22.275 0 0 0-3.255 3.851l-2.193 3.29 1.859 1.744a.545.545 0 0 1 .034.034l1.743 1.858 3.288-2.192a22.263 22.263 0 0 0 3.854-3.257l1.228-1.303a9.251 9.251 0 0 0 2.517-6.346V2.5a.25.25 0 0 0-.25-.25h-1.177a9.252 9.252 0 0 0-6.344 2.518ZM6.5 21c-1.209 1.209-3.901 1.445-4.743 1.49a.236.236 0 0 1-.18-.067.236.236 0 0 1-.067-.18c.045-.842.281-3.534 1.49-4.743.9-.9 2.6-.9 3.5 0 .9.9.9 2.6 0 3.5Zm-.592-8.588L8.17 9.017c.23-.346.47-.685.717-1.017H5.066a.25.25 0 0 0-.214.121l-2.167 3.612ZM16 15.112c-.333.248-.672.487-1.018.718l-3.393 2.262.678 3.223 3.612-2.167a.25.25 0 0 0 .121-.214ZM17.5 8a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 17.5 8Z"/></svg>
+
+    </a>
+    DTC-DE-Course
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Tonivalle/DTC-DE-Course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tonivalle/DTC-DE-Course
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Week 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Week 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/1-google-cloud/" class="md-nav__link">
+        Google Cloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/2-terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/3-docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/4-postgres/" class="md-nav__link">
+        Postgres
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/5-networks/" class="md-nav__link">
+        Networks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/6-automatic-ingestion/" class="md-nav__link">
+        Automatic Ingestion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/7-docker-compose/" class="md-nav__link">
+        Docker-Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/8-google-cloud-env/" class="md-nav__link">
+        Setting up the Environment on Google Cloud (Cloud VM + SSH access)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Week 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_2/1-data-lake/" class="md-nav__link">
+        Data Lake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_2/2-workflow-orchestration/" class="md-nav__link">
+        Workflow Orchestration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_2/3-etl-gcp-prefect/" class="md-nav__link">
+        ETL with GCP & Prefect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_2/4-deployments/" class="md-nav__link">
+        Deployments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_2/5-prefect-docker/" class="md-nav__link">
+        Prefect + Docker
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Week 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Data warehouse & Big Query
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Data warehouse & Big Query
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#olap-vs-oltp" class="md-nav__link">
+    OLAP vs OLTP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-warehouses" class="md-nav__link">
+    Data warehouses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-query" class="md-nav__link">
+    Big Query
+  </a>
+  
+    <nav class="md-nav" aria-label="Big Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-external-table" class="md-nav__link">
+    Creating an external table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitions" class="md-nav__link">
+    Partitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clusters" class="md-nav__link">
+    Clusters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-vs-partition" class="md-nav__link">
+    Cluster vs. Partition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-reclustering" class="md-nav__link">
+    Automatic reclustering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-on-big-query" class="md-nav__link">
+    Best practices on Big Query
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-notes" class="md-nav__link">
+    Other notes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-ml-big-query/" class="md-nav__link">
+        ML in BigQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-deployment-ml-big-query/" class="md-nav__link">
+        BigQuery Machine Learning Deployment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Week 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Week 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/1-analytics-engineering-basics/" class="md-nav__link">
+        Analytics engineering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/2-dbt-basics/" class="md-nav__link">
+        dbt basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/3-using-dbt/" class="md-nav__link">
+        Using dbt
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#olap-vs-oltp" class="md-nav__link">
+    OLAP vs OLTP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-warehouses" class="md-nav__link">
+    Data warehouses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-query" class="md-nav__link">
+    Big Query
+  </a>
+  
+    <nav class="md-nav" aria-label="Big Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-external-table" class="md-nav__link">
+    Creating an external table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitions" class="md-nav__link">
+    Partitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clusters" class="md-nav__link">
+    Clusters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-vs-partition" class="md-nav__link">
+    Cluster vs. Partition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-reclustering" class="md-nav__link">
+    Automatic reclustering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-on-big-query" class="md-nav__link">
+    Best practices on Big Query
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-notes" class="md-nav__link">
+    Other notes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="data-warehouse-big-query">Data warehouse &amp; Big Query</h1>
+<h2 id="olap-vs-oltp">OLAP vs OLTP</h2>
+<p>An <strong>OLAP</strong> system is designed to process large amounts of data quickly, allowing users to analyze multiple data dimensions in tandem. Teams can use this data for decision-making and problem-solving and users are usually data scientists/analysts. </p>
+<p>In contrast, <strong>OLTP</strong> systems are designed to handle large volumes of transactional data involving multiple users, in fast but small transactions.</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">OLAP</th>
+<th align="center">OLTP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Meaning</strong></td>
+<td align="center">On-Line Analytical Process</td>
+<td align="center">On-Line Transaction Processing</td>
+</tr>
+<tr>
+<td align="center"><strong>Purpose</strong></td>
+<td align="center">Plan, solve problems, support decisions, discover hidden insights</td>
+<td align="center">Control and run essential business operations in real time</td>
+</tr>
+<tr>
+<td align="center"><strong>Data updates</strong></td>
+<td align="center">Data periodically refreshed with scheduled, long-running batch jobs</td>
+<td align="center">Short, fast updates initiated by user</td>
+</tr>
+<tr>
+<td align="center"><strong>Database design</strong></td>
+<td align="center">Denormalized databases for analysis</td>
+<td align="center">Normalized databases for efficiency</td>
+</tr>
+<tr>
+<td align="center"><strong>Space requirements</strong></td>
+<td align="center">Generally large due to aggregating large datasets</td>
+<td align="center">Generally small if historical data is archived</td>
+</tr>
+<tr>
+<td align="center"><strong>Backup and recovery</strong></td>
+<td align="center">Lost data can be reloaded from OLTP database as needed in lieu of regular backups</td>
+<td align="center">Regular backups required to ensure business continuity and meet legal and governance requirements</td>
+</tr>
+<tr>
+<td align="center"><strong>Productivity</strong></td>
+<td align="center">Increases productivity of business managers, data analysts, and executives</td>
+<td align="center">Increases productivity of end users</td>
+</tr>
+<tr>
+<td align="center"><strong>Data view</strong></td>
+<td align="center">Multi-dimensional view of enterprise data</td>
+<td align="center">Lists day-to-day business transactions</td>
+</tr>
+<tr>
+<td align="center"><strong>User examples</strong></td>
+<td align="center">Knowledge workers such as data analysts, business analysts, and executives</td>
+<td align="center">Customer-facing personnel, clerks, online shoppers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-warehouses">Data warehouses</h2>
+<p>A data warehouse is a <strong>OLAP</strong> solution, used primarily for data analysis and reporting. They contain <strong>Meta Data</strong>, <strong>Raw Data</strong> and <strong>Summary Data</strong>. This data comes from many different sources, that report to a staging area that is the one that writes to the warehouse.</p>
+<p>A warehouse can be divided in <strong>Data Marts</strong>, which are a data storage system that contains information specific to an organization's business unit, like sales, supply chain, HR, marketing...</p>
+<p>Data mats are usually used as interfaces for users but sometimes data warehouses are used by analysts for broader insights</p>
+<p><img alt="" src="../images/warehouse_structure.jpg" /></p>
+<h2 id="big-query">Big Query</h2>
+<p>Big query is a <strong>Serverless Data Warehouse</strong> (you dont have to manage a server or install software to make it work) that includes software and infrastructure from the get-go. It has built-in features for machine learning, geospatial analysis or BI, and maximizes flexibility by separating your storage and the computer engine that processes your data.</p>
+<p>Big query contains also public datasets like <code>bigquery-public-data.new_york_citibike.citibike_stations</code> which you can search using the <em>explorer search bar</em> and <em>broadening search to all projects</em>.</p>
+<p>It is a column oriented storage (instead of record oriented like <code>csv</code> files or databases like <code>Postgres</code>/<code>MySQL</code>) which helps provide better aggregation on columns, which is a more used operation type for analysis.</p>
+<p><img alt="record_column" src="../images/record_column.png" /></p>
+<h3 id="creating-an-external-table">Creating an external table</h3>
+<p>You can create a table that is not stored on Big Query (an <strong>external table</strong>) by using:
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">EXTERNAL</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">vast</span><span class="o">-</span><span class="n">bounty</span><span class="o">-</span><span class="mi">142716</span><span class="p">.</span><span class="n">trips_data_all</span><span class="p">.</span><span class="n">external_yellow_tripdata</span><span class="o">`</span>
+<span class="k">OPTIONS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;parquet&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">uris</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;gs://dtc-de-data-lake/data/yellow/yellow_tripdata_2022-*.parquet&#39;</span><span class="p">]</span>
+<span class="p">);</span>
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When creating external tables, Big Query will not be able to get the table size or the number of rows if you go to table information since it is not actually stored on the warehouse.</p>
+</div>
+<h3 id="partitions">Partitions</h3>
+<p>We can create <strong>partitions</strong> by splitting the data using one or more columns. </p>
+<p>There is a limit of 4000 partitions per table.
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">vast</span><span class="o">-</span><span class="n">bounty</span><span class="o">-</span><span class="mi">142716</span><span class="p">.</span><span class="n">trips_data_all</span><span class="p">.</span><span class="n">yellow_tripdata_partitoned</span>
+<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span>
+<span class="w">  </span><span class="nb">DATE</span><span class="p">(</span><span class="n">tpep_pickup_datetime</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">vast</span><span class="o">-</span><span class="n">bounty</span><span class="o">-</span><span class="mi">142716</span><span class="p">.</span><span class="n">trips_data_all</span><span class="p">.</span><span class="n">external_yellow_tripdata</span><span class="p">;</span>
+</code></pre></div>
+<img alt="partition" src="../images/partition.png" /></p>
+<p>Partitions are a good idea in Cloud Computing since filtering using the partition column will need to process fewer data as it is already pre-filtered.
+<div class="highlight"><pre><span></span><code><span class="c1">-- Impact of partition</span>
+<span class="c1">-- Scanning 1.6GB of data</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="p">(</span><span class="n">VendorID</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">vast</span><span class="o">-</span><span class="n">bounty</span><span class="o">-</span><span class="mi">142716</span><span class="p">.</span><span class="n">trips_data_all</span><span class="p">.</span><span class="n">yellow_tripdata_non_partitoned</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">tpep_pickup_datetime</span><span class="p">)</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2022-06-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2022-06-30&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Scanning ~106 MB of DATA</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="p">(</span><span class="n">VendorID</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">vast</span><span class="o">-</span><span class="n">bounty</span><span class="o">-</span><span class="mi">142716</span><span class="p">.</span><span class="n">trips_data_all</span><span class="p">.</span><span class="n">yellow_tripdata_partitoned</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">tpep_pickup_datetime</span><span class="p">)</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2022-06-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2022-06-30&#39;</span><span class="p">;</span>
+</code></pre></div></p>
+<p>We can look at the partitions and their size:
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="w"> </span><span class="n">partition_id</span><span class="p">,</span><span class="w"> </span><span class="n">total_rows</span>
+<span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">nytaxi</span><span class="p">.</span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">PARTITIONS</span><span class="o">`</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;yellow_tripdata_partitoned&#39;</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">total_rows</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></p>
+<p>Go to <a href="https://cloud.google.com/bigquery/docs/partitioned-tables">Google Docs for this feature</a>.</p>
+<h3 id="clusters">Clusters</h3>
+<p>Clustering allows you to group data (it works inside partitions). </p>
+<p>This benefits us in two ways: the rows that share tha same cluster will be grouped when we see the table and the cost and performance will improve. Filter queries and aggregate queries will also show better performance, especially with tables &gt; 1GB of data. </p>
+<p>The order of the columns when generating the clusters is important, since that will be the way the rows will be ordered after the operation.</p>
+<p>The limit is of 4 clustering columns per table.</p>
+<p><img alt="CLUSTERING" src="../images/clustering.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">vast</span><span class="o">-</span><span class="n">bounty</span><span class="o">-</span><span class="mi">142716</span><span class="p">.</span><span class="n">trips_data_all</span><span class="p">.</span><span class="n">yellow_tripdata_partitoned_clustered</span>
+<span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">tpep_pickup_datetime</span><span class="p">)</span>
+<span class="k">CLUSTER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">VendorID</span><span class="w"> </span><span class="k">AS</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">vast</span><span class="o">-</span><span class="n">bounty</span><span class="o">-</span><span class="mi">142716</span><span class="p">.</span><span class="n">trips_data_all</span><span class="p">.</span><span class="n">external_yellow_tripdata</span><span class="p">;</span>
+
+<span class="c1">-- Processing partitioned &amp; clustered data</span>
+<span class="c1">-- Query scans 1.1 GB</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">trips</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">vast</span><span class="o">-</span><span class="n">bounty</span><span class="o">-</span><span class="mi">142716</span><span class="p">.</span><span class="n">trips_data_all</span><span class="p">.</span><span class="n">yellow_tripdata_partitoned</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">tpep_pickup_datetime</span><span class="p">)</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2022-06-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2023-12-31&#39;</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">VendorID</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">-- Query scans 864.5 MB</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">trips</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">vast</span><span class="o">-</span><span class="n">bounty</span><span class="o">-</span><span class="mi">142716</span><span class="p">.</span><span class="n">trips_data_all</span><span class="p">.</span><span class="n">yellow_tripdata_partitoned_clustered</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">tpep_pickup_datetime</span><span class="p">)</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2022-06-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2023-12-31&#39;</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">VendorID</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<p>Go to <a href="https://cloud.google.com/bigquery/docs/clustered-tables">Google Docs for this feature</a>.</p>
+<h3 id="cluster-vs-partition">Cluster vs. Partition</h3>
+<table>
+<thead>
+<tr>
+<th>Clustering</th>
+<th>Partitoning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cost benefit unknown</td>
+<td>Cost known upfront</td>
+</tr>
+<tr>
+<td>You need more granularity than partitioning alone allows</td>
+<td>You need partition-level management.</td>
+</tr>
+<tr>
+<td>Your queries commonly use filters or aggregation against multiple particular columns</td>
+<td>Filter or aggregate on single column</td>
+</tr>
+<tr>
+<td>The cardinality of the number of values in a column or group of columns is large</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>You should choose Clustering over Partitioning if:</p>
+<ul>
+<li>Partitioning results in a small amount of data per partition (approximately less than 1 GB). When your granularity is high, its better to Cluster.</li>
+<li>Partitioning results in a large number of partitions beyond the limits on partitioned tables (4000 partitions).</li>
+<li>Partitioning results in your mutation operations modifying the majority of partitions in the table frequently (for example, every few minutes).</li>
+</ul>
+<h3 id="automatic-reclustering">Automatic reclustering</h3>
+<p>As data is added to a clustered table, the new data is organized into blocks, which might create new storage blocks or update existing blocks. Block optimization is required for optimal query and storage performance because new data might not be grouped with existing data that has the same cluster values.</p>
+<p>To maintain the performance characteristics of a clustered table:</p>
+<ul>
+<li>BigQuery performs automatic re-clustering in the background.</li>
+<li>For partitioned tables, clustering is maintained for data within the scope of each partition.</li>
+</ul>
+<h3 id="best-practices-on-big-query">Best practices on Big Query</h3>
+<ul>
+<li>
+<p>Cost reduction</p>
+<ul>
+<li>Avoid SELECT *</li>
+<li>Price your queries before running them (You can see this on the top right)</li>
+<li>Use clustered or partitioned tables</li>
+<li>Use streaming inserts with caution</li>
+<li>Materialize query results in stages</li>
+</ul>
+</li>
+<li>
+<p>Query Performance</p>
+<ul>
+<li>Filter on partitioned columns</li>
+<li>Denormalizing data<ul>
+<li>Use nested or repeated columns</li>
+</ul>
+</li>
+<li>Use external data sources appropriately (They may incur more cost)<ul>
+<li>Don't use it if you want high query performance</li>
+</ul>
+</li>
+<li>Reduce data before using a JOIN</li>
+<li>Do not treat WITH clauses as prepared statements</li>
+<li>Avoid oversharding tables</li>
+<li>Avoid JavaScript user-defined functions</li>
+<li>Use approximate aggregation functions (HyperLogLog++)</li>
+<li><code>Order</code> should be the last part of the query, for query operations to maximize performance</li>
+<li>Optimize your join patterns<ul>
+<li>As a best practice, place the table with the largest number of rows first, followed by the table with the fewest rows, and then place the remaining tables by decreasing size.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="other-notes">Other notes</h2>
+<p>All the queries can be found on <a href="https://github.com/Tonivalle/DTC-DE-Course/tree/main/src/dtc_de_course/week_3/big_query_sample_queries.sql">here</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
+      
+    
+  </body>
+</html>

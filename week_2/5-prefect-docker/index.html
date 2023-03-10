@@ -11,17 +11,17 @@
       
       
       
-        <link rel="prev" href="../4-postgres/">
+        <link rel="prev" href="../4-deployments/">
       
       
-        <link rel="next" href="../6-automatic-ingestion/">
+        <link rel="next" href="../../week_3/1-data-warehouse-big-query/">
       
       <link rel="icon" href="../../default/rocket-24.svg">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
-        <title>Networks - DTC-DE-Course</title>
+        <title>Prefect + Docker - DTC-DE-Course</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#networks" class="md-skip">
+        <a href="#prefect-docker" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Networks
+              Prefect + Docker
             
           </span>
         </div>
@@ -249,16 +249,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
@@ -267,7 +265,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Week 1
@@ -280,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1-google-cloud/" class="md-nav__link">
+      <a href="../../week_1/1-google-cloud/" class="md-nav__link">
         Google Cloud
       </a>
     </li>
@@ -294,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2-terraform/" class="md-nav__link">
+      <a href="../../week_1/2-terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -308,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3-docker/" class="md-nav__link">
+      <a href="../../week_1/3-docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -322,8 +320,157 @@
   
   
     <li class="md-nav__item">
-      <a href="../4-postgres/" class="md-nav__link">
+      <a href="../../week_1/4-postgres/" class="md-nav__link">
         Postgres
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/5-networks/" class="md-nav__link">
+        Networks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/6-automatic-ingestion/" class="md-nav__link">
+        Automatic Ingestion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/7-docker-compose/" class="md-nav__link">
+        Docker-Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_1/8-google-cloud-env/" class="md-nav__link">
+        Setting up the Environment on Google Cloud (Cloud VM + SSH access)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Week 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-data-lake/" class="md-nav__link">
+        Data Lake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-workflow-orchestration/" class="md-nav__link">
+        Workflow Orchestration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-etl-gcp-prefect/" class="md-nav__link">
+        ETL with GCP & Prefect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-deployments/" class="md-nav__link">
+        Deployments
       </a>
     </li>
   
@@ -345,157 +492,61 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Prefect + Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Networks
-      </a>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../6-automatic-ingestion/" class="md-nav__link">
-        Automatic Ingestion
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../7-docker-compose/" class="md-nav__link">
-        Docker-Compose
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../8-google-cloud-env/" class="md-nav__link">
-        Setting up the Environment on Google Cloud (Cloud VM + SSH access)
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Week 2
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Week 2
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../week_2/1-data-lake/" class="md-nav__link">
-        Data Lake
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../week_2/2-workflow-orchestration/" class="md-nav__link">
-        Workflow Orchestration
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../week_2/3-etl-gcp-prefect/" class="md-nav__link">
-        ETL with GCP & Prefect
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../week_2/4-deployments/" class="md-nav__link">
-        Deployments
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../week_2/5-prefect-docker/" class="md-nav__link">
         Prefect + Docker
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-a-flow-in-a-docker-container" class="md-nav__link">
+    Running a Flow in a Docker Container
+  </a>
+  
+    <nav class="md-nav" aria-label="Running a Flow in a Docker Container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-the-docker-block" class="md-nav__link">
+    Adding the Docker Block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefect-profile" class="md-nav__link">
+    Prefect profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -681,6 +732,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-a-flow-in-a-docker-container" class="md-nav__link">
+    Running a Flow in a Docker Container
+  </a>
+  
+    <nav class="md-nav" aria-label="Running a Flow in a Docker Container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-the-docker-block" class="md-nav__link">
+    Adding the Docker Block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefect-profile" class="md-nav__link">
+    Prefect profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -698,54 +784,118 @@
 
 
 
-<h1 id="networks">Networks</h1>
-<p>Right now the database and pgAdmin will not be able to see each other, we need to put them inside a common network. 
-<pre class="mermaid"><code>
-flowchart
-subgraph Network
-  subgraph Docker container
-  A[pgAdmin]
-  end
+<h1 id="prefect-docker">Prefect + Docker</h1>
+<h2 id="running-a-flow-in-a-docker-container">Running a Flow in a Docker Container</h2>
+<p>To have the system be more production-ready and allow other people to access our code, we can put it on cloud storage or run it using a <strong>Docker image</strong>, with the code included in it.</p>
+<p>By default, prefect will look for flows inside the <code>/opt/prefect/flows</code> folder.</p>
+<p>We create these two files:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Dockerfile</label><label for="__tabbed_1_2">docker-requirements.txt</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">prefecthq/prefect:2.7.7-python3.9</span>
 
-  subgraph Docker container
-  B[(Postgres)]
-  end
-end
-A --- B</code></pre></p>
-<p>The code to create a network called <code>pg-network</code> is:</p>
-<p><div class="highlight"><pre><span></span><code><span class="na">docker</span><span class="w"> </span><span class="s">network create pg-network</span>
-</code></pre></div>
-and adding the network as environmental variable to the other two containers:</p>
-<div class="highlight"><pre><span></span><code><span class="na">docker</span><span class="w"> </span><span class="s">run -it </span>\
-<span class="w">  </span><span class="s">-e POSTGRES_USER=&quot;root&quot; </span>\
-<span class="w">  </span><span class="s">-e POSTGRES_PASSWORD=&quot;root&quot; </span>\
-<span class="w">  </span><span class="s">-e POSTGRES_DB=&quot;ny_taxi&quot; </span>\
-<span class="w">  </span><span class="s">-v $(pwd)/code/week_1/docker/postgres/data:/var/lib/postgresql/data </span>\
-<span class="w">  </span><span class="s">-p 5432:5432 </span>\
-<span class="hll"><span class="w">  </span><span class="s">--name pg-database </span>\
-</span><span class="hll"><span class="w">  </span><span class="s">--network=pg-network </span>\
-</span><span class="w">  </span><span class="s">postgres:13</span>
+<span class="k">COPY</span><span class="w"> </span>docker-requirements.txt<span class="w"> </span>.
 
-<span class="na">docker</span><span class="w"> </span><span class="s">run -it </span>\
-<span class="w">  </span><span class="s">-e PGADMIN_DEFAULT_EMAIL=&quot;admin@admin.com&quot; </span>\
-<span class="w">  </span><span class="s">-e PGADMIN_DEFAULT_PASSWORD=&quot;root&quot; </span>\
-<span class="w">  </span><span class="s">-p 8080:80 </span>\
-<span class="hll"><span class="w">  </span><span class="s">--network=pg-network </span>\
-</span><span class="w">  </span><span class="s">dpage/pgadmin4</span>
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>docker-requirements.txt<span class="w"> </span>--trusted-host<span class="w"> </span>pypi.python.org<span class="w"> </span>--no-cache-dir
+
+<span class="k">COPY</span><span class="w"> </span>../flows<span class="w"> </span>/opt/prefect/flows<span class="w"> </span>
+
+<span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/prefect/data/yellow
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">pandas</span><span class="o">==</span><span class="mf">1.5.2</span>
+<span class="n">prefect</span><span class="o">-</span><span class="n">gcp</span><span class="p">[</span><span class="n">cloud_storage</span><span class="p">]</span><span class="o">==</span><span class="mf">0.2.4</span>
+<span class="n">protobuf</span><span class="o">==</span><span class="mf">4.21.11</span>
+<span class="n">pyarrow</span><span class="o">==</span><span class="mf">10.0.1</span>
+<span class="n">pandas</span><span class="o">-</span><span class="n">gbq</span><span class="o">==</span><span class="mf">0.18.1</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>And now we can build the image as usual by executing:
+<div class="highlight"><pre><span></span><code><span class="na">docker</span><span class="w"> </span><span class="s">build -t tonivalle/prefect:etl_deploy ./src/dtc_de_course/week_2/p04_prefect_and_docker</span>
+</code></pre></div></p>
+<p>To push this image to Docker hub we have to do:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># First we login on docker</span>
+<span class="na">docker</span><span class="w"> </span><span class="s">login</span>
+
+<span class="c1"># Now we push the image</span>
+<span class="na">docker</span><span class="w"> </span><span class="s">image push tonivalle/prefect:etl_deploy</span>
+</code></pre></div>
+<h3 id="adding-the-docker-block">Adding the Docker Block</h3>
+<p>On the UI we will need to create a <strong>Docker Block</strong> that references our image.</p>
+<p><img alt="container-block" src="../images/container-block.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>We gave the database a <code>--name</code> to configure the connection easier, since if you dont you need to check the name docker has given the container.</p>
+<p>Alternatively, you can create this block via <a href="https://github.com/discdiver/prefect-zoomcamp/tree/main/blocks">code</a>:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect.infrastructure.docker</span> <span class="kn">import</span> <span class="n">DockerContainer</span>
+
+<span class="c1"># alternative to creating DockerContainer block in the UI</span>
+<span class="n">docker_block</span> <span class="o">=</span> <span class="n">DockerContainer</span><span class="p">(</span>
+    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;tonivalle/prefect:etl_deploy&quot;</span><span class="p">,</span>  <span class="c1"># insert your image here</span>
+    <span class="n">image_pull_policy</span><span class="o">=</span><span class="s2">&quot;ALWAYS&quot;</span><span class="p">,</span>
+    <span class="n">auto_remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">docker_block</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;etl-test-container&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></p>
 </div>
-<p>We can now go to <code>localhost:8080</code> since in the pgadmin configuration we passed that as the port in our machine that will comunicate with the container.</p>
-<p>We will need to login with the credentials <code>admin@admin.com</code> and <code>root</code> which we gave pgadmin as env variables.</p>
-<p>Now clicking in <code>Add New Server</code>will show us the prompt to pass the database info, add a name and go to <code>Connection</code>.</p>
-<p><img alt="pgadmin1" src="../images/pgadmin-config.png" /></p>
-<p>Fill out the connection information with your containers data.
-<img alt="pgadmin2" src="../images/pgadmin-connection.png" /></p>
-<p>On the browser to the left we can check the data. Go to <code>Servers &gt; Docker localhost &gt; Databases &gt; ny_taxi &gt; Schemas &gt; Tables</code> right click on it and select <code>First 100 Rows</code>.</p>
-<p>You can also use SQL code via the <code>Query Tool</code>, accessible on the tools menu or clicking on this symbol: </p>
-<p><img alt="pgadmin3" src="../images/query-tool.png" /></p>
+<p>We can now create a deployment using this block. Before we did it via the CLI, but we can also do it using Python code:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">prefect.deployments</span> <span class="kn">import</span> <span class="n">Deployment</span>
+<span class="kn">from</span> <span class="nn">prefect.infrastructure.docker</span> <span class="kn">import</span> <span class="n">DockerContainer</span>
+<span class="kn">from</span> <span class="nn">parametrized_flow</span> <span class="kn">import</span> <span class="n">etl_multiple_dates</span>
+
+<span class="n">docker_block</span> <span class="o">=</span> <span class="n">DockerContainer</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;etl-test-container&quot;</span><span class="p">)</span>
+
+<span class="n">docker_deployment</span> <span class="o">=</span> <span class="n">Deployment</span><span class="o">.</span><span class="n">build_from_flow</span><span class="p">(</span>
+    <span class="n">flow</span><span class="o">=</span><span class="n">etl_multiple_dates</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;docker-etl-flow&quot;</span><span class="p">,</span>
+    <span class="n">infrastructure</span><span class="o">=</span><span class="n">docker_block</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">docker_deployment</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</code></pre></div>
+And calling ( It's important to do it from the folder that contains this file):
+<div class="highlight"><pre><span></span><code><span class="na">python</span><span class="w"> </span><span class="s">docker_deploy.py</span>
+</code></pre></div></p>
+<p>We should be able to see this new deployment inside our UI.</p>
+<h3 id="prefect-profile">Prefect profile</h3>
+<p>Typing:
+<div class="highlight"><pre><span></span><code><span class="na">❯</span><span class="w"> </span><span class="s">prefect profile ls</span>
+<span class="w">    </span><span class="na">┏━━━━━━━━━━━━━━━━━━━━━┓</span>
+<span class="w">    </span><span class="na">┃</span><span class="w"> </span><span class="s">Available Profiles: ┃</span>
+<span class="w">    </span><span class="na">┡━━━━━━━━━━━━━━━━━━━━━┩</span>
+<span class="w">    </span><span class="na">│</span><span class="w">           </span><span class="s">* default │</span>
+<span class="w">    </span><span class="na">└─────────────────────┘</span>
+</code></pre></div>
+We can see the available profiles. We are going to activate an agent to look for work in the default queue:
+<div class="highlight"><pre><span></span><code>❯ prefect agent start -q default
+
+    Starting v2.8.0 agent connected to http://127.0.0.1:4200/api...
+
+    ___ ___ ___ ___ ___ ___ _____     _   ___ ___ _  _ _____
+    | _ \ _ \ __| __| __/ __|_   _|   /_\ / __| __| \| |_   _|
+    |  _/   / _|| _|| _| (__  | |    / _ \ (_ | _|| .` | | |
+    |_| |_|_\___|_| |___\___| |_|   /_/ \_\___|___|_|\_| |_|
+
+
+    Agent started! Looking for work from queue(s): default...
+</code></pre></div>
+Running the deployment will put it on the queue of the flow (in this case <code>default</code>):
+<div class="highlight"><pre><span></span><code>❯ prefect deployment run etl-multiple-dates/docker-etl-flow -p &quot;months=[1,2]&quot;
+    Creating flow run for deployment &#39;etl-multiple-dates/docker-etl-flow&#39;...
+    Created flow run &#39;thistle-ocelot&#39;.
+    └── UUID: f05a5c41-2e7f-4d59-ad27-5e25d10cacbf
+    └── Parameters: {&#39;months&#39;: [1, 2]}
+    └── Scheduled start time: 2023-02-11 14:35:34 CET (now)
+    └── URL: http://127.0.0.1:4200/flow-runs/flow-run/f05a5c41-2e7f-4d59-ad27-5e25d10cacbf
+</code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You need to <code>cd</code> into this directory when creating the deployment and possibly the image; doing it from the ouside will mess imports if they dont have the same structure!</p>
+</div>
 
 
 

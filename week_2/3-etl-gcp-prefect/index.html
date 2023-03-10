@@ -14,8 +14,10 @@
         <link rel="prev" href="../2-workflow-orchestration/">
       
       
+        <link rel="next" href="../4-deployments/">
+      
       <link rel="icon" href="../../default/rocket-24.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -527,10 +529,199 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gcs-to-bigquery" class="md-nav__link">
+    GCS to BigQuery
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-deployments/" class="md-nav__link">
+        Deployments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-prefect-docker/" class="md-nav__link">
+        Prefect + Docker
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Week 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_3/1-data-warehouse-big-query/" class="md-nav__link">
+        Data warehouse & Big Query
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_3/2-ml-big-query/" class="md-nav__link">
+        ML in BigQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_3/3-deployment-ml-big-query/" class="md-nav__link">
+        BigQuery Machine Learning Deployment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Week 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Week 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/1-analytics-engineering-basics/" class="md-nav__link">
+        Analytics engineering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/2-dbt-basics/" class="md-nav__link">
+        dbt basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/3-using-dbt/" class="md-nav__link">
+        Using dbt
+      </a>
     </li>
   
 
@@ -609,6 +800,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gcs-to-bigquery" class="md-nav__link">
+    GCS to BigQuery
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -644,6 +842,8 @@
 <p><img alt="bucket-block" src="../images/bucket-block.png" /></p>
 <h3 id="coding-the-pipeline">Coding the pipeline</h3>
 <p>Now we can put these blocks into our code! We will refactor the pipeline to use these classes. Right now we arent transforming the data after ingestion, but in the future we can add functions before the loading!</p>
+<details class="example">
+<summary>Example</summary>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
@@ -693,6 +893,76 @@
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">etl_web_to_gcs</span><span class="p">()</span>
 </code></pre></div>
+</details>
+<h2 id="gcs-to-bigquery">GCS to BigQuery</h2>
+<p>Weve got the data in its raw form on a Bucket, we are going to add it to our BigQuery Database. Since we are simulating a usecase, we are going to download the data from GCS even if it is already in our system from the previous step.</p>
+<p>We created the <code>trips_data_all</code> <em>dataset</em> using <a href="https://github.com/Tonivalle/DTC-DE-Course/blob/main/code/week_1/terraform/main.tf"><em>terraform</em></a> but if you dont have one, create one using terraform or the UI.</p>
+<p>We can load the data to <strong>BigQuery</strong> following this example:</p>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">prefect</span> <span class="kn">import</span> <span class="n">flow</span><span class="p">,</span> <span class="n">task</span>
+<span class="kn">from</span> <span class="nn">prefect_gcp</span> <span class="kn">import</span> <span class="n">GcpCredentials</span>
+<span class="kn">from</span> <span class="nn">prefect_gcp.cloud_storage</span> <span class="kn">import</span> <span class="n">GcsBucket</span>
+
+
+<span class="nd">@flow</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">etl_gcs_to_bq</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main ETL flow to load data into Big Query&quot;&quot;&quot;</span>
+    <span class="n">COLOR</span> <span class="o">=</span> <span class="s2">&quot;yellow&quot;</span>
+    <span class="n">YEAR</span> <span class="o">=</span> <span class="mi">2022</span>
+    <span class="n">MONTH</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="n">extract_from_gcs</span><span class="p">(</span><span class="n">COLOR</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">,</span> <span class="n">MONTH</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">transform_data</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">write_to_bq</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+
+<span class="nd">@task</span><span class="p">(</span><span class="n">retries</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">extract_from_gcs</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">month</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract data from GCS&quot;&quot;&quot;</span>
+    <span class="n">dataset_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">_tripdata_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02</span><span class="si">}</span><span class="s2">.parquet&quot;</span>
+    <span class="n">gcs_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">dataset_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">local_data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">gcs_block</span> <span class="o">=</span> <span class="n">GcsBucket</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;dte-bucket-block&quot;</span><span class="p">)</span>
+    <span class="n">gcs_block</span><span class="o">.</span><span class="n">get_directory</span><span class="p">(</span><span class="n">from_path</span><span class="o">=</span><span class="n">gcs_path</span><span class="p">,</span> <span class="n">local_path</span><span class="o">=</span><span class="n">local_data_path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">local_data_path</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="n">color</span> <span class="o">/</span> <span class="n">dataset_file</span>
+
+
+<span class="nd">@task</span><span class="p">(</span><span class="n">log_prints</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">transform_data</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Data cleaning example&quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pre: missing passenger count: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;passenger_count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;passenger_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;post: missing passenger count: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;passenger_count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">write_to_bq</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write DataFrame to BiqQuery&quot;&quot;&quot;</span>
+
+    <span class="n">gcp_credentials_block</span> <span class="o">=</span> <span class="n">GcpCredentials</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;dte-gcp-credential&quot;</span><span class="p">)</span>
+
+<span class="hll">    <span class="n">df</span><span class="o">.</span><span class="n">to_gbq</span><span class="p">(</span>
+</span><span class="hll">        <span class="n">destination_table</span><span class="o">=</span><span class="s2">&quot;trips_data_all.rides&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">project_id</span><span class="o">=</span><span class="s2">&quot;vast-bounty-142716&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">credentials</span><span class="o">=</span><span class="n">gcp_credentials_block</span><span class="o">.</span><span class="n">get_credentials_from_service_account</span><span class="p">(),</span>
+</span><span class="hll">        <span class="n">chunksize</span><span class="o">=</span><span class="mi">500_000</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">)</span>
+</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">etl_gcs_to_bq</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<p>Additionally, you can add data from GCS to BigQuery directly through the UI:</p>
+<p><img alt="add-table" src="../images/add-table.gif" /></p>
 
 
 
@@ -735,7 +1005,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
     
   </body>

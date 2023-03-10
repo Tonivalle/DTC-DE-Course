@@ -17,7 +17,7 @@
         <link rel="next" href="../2-workflow-orchestration/">
       
       <link rel="icon" href="../../default/rocket-24.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -472,6 +472,19 @@
     Data Lake vs Data Warehouse
   </a>
   
+    <nav class="md-nav" aria-label="Data Lake vs Data Warehouse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etl-vs-elt" class="md-nav__link">
+    ETL vs. ELT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -525,6 +538,188 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-deployments/" class="md-nav__link">
+        Deployments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-prefect-docker/" class="md-nav__link">
+        Prefect + Docker
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Week 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_3/1-data-warehouse-big-query/" class="md-nav__link">
+        Data warehouse & Big Query
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_3/2-ml-big-query/" class="md-nav__link">
+        ML in BigQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_3/3-deployment-ml-big-query/" class="md-nav__link">
+        BigQuery Machine Learning Deployment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Week 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Week 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/1-analytics-engineering-basics/" class="md-nav__link">
+        Analytics engineering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/2-dbt-basics/" class="md-nav__link">
+        dbt basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/3-using-dbt/" class="md-nav__link">
+        Using dbt
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -568,6 +763,19 @@
   <a href="#data-lake-vs-data-warehouse" class="md-nav__link">
     Data Lake vs Data Warehouse
   </a>
+  
+    <nav class="md-nav" aria-label="Data Lake vs Data Warehouse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etl-vs-elt" class="md-nav__link">
+    ETL vs. ELT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -648,6 +856,10 @@
 </tr>
 </tbody>
 </table>
+<h3 id="etl-vs-elt">ETL vs. ELT</h3>
+<p><img alt="etl_elt" src="../images/etl_elt.png" /></p>
+<p>ETL usually presents more stable data at the price of higher costs. Usually done for Data Warehouses.</p>
+<p>ELT increases the size of data stored but the processing is done when needed and inside the storage system which lowers the number of computations performed. Prefered pipeline for Data Lakes.</p>
 <h2 id="problems-of-data-lake">Problems of Data Lake</h2>
 <p>One of the problems is the conversion of a Data Lake into a Data Swamp. It is a collection point for a lot of miscellaneous data that no longer has any sort of structure and the result of poor data management and governance.</p>
 <p>When there is no versioning or incompatible schemas for the same data (i.e. The same data in the same route is saved as a <em>.pickle</em> and then as a <em>.parquet</em>, making accessing it harder and harder with time and new formats.)</p>
@@ -720,7 +932,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
     
   </body>

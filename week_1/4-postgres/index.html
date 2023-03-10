@@ -17,7 +17,7 @@
         <link rel="next" href="../5-networks/">
       
       <link rel="icon" href="../../default/rocket-24.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -473,6 +473,188 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_2/4-deployments/" class="md-nav__link">
+        Deployments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_2/5-prefect-docker/" class="md-nav__link">
+        Prefect + Docker
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Week 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_3/1-data-warehouse-big-query/" class="md-nav__link">
+        Data warehouse & Big Query
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_3/2-ml-big-query/" class="md-nav__link">
+        ML in BigQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_3/3-deployment-ml-big-query/" class="md-nav__link">
+        BigQuery Machine Learning Deployment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Week 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Week 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/1-analytics-engineering-basics/" class="md-nav__link">
+        Analytics engineering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/2-dbt-basics/" class="md-nav__link">
+        dbt basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week_4/3-using-dbt/" class="md-nav__link">
+        Using dbt
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -551,12 +733,12 @@ This allows us to use commands on the container.
 <div class="highlight"><pre><span></span><code><span class="na">poetry</span><span class="w"> </span><span class="s">add jupyter pandas sqlalchemy</span>
 </code></pre></div></p>
 <p>Now we will download the dataset, which is the <a href="https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page">NY taxi dataset</a>, which is a common one for experimenting with data tools. The one used is <a href="https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet">this one</a>.</p>
-<p><div class="highlight"><pre><span></span><code><span class="na">curl</span><span class="w"> </span><span class="s">-O -L --output-dir ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
+<p><div class="highlight"><pre><span></span><code><span class="na">curl</span><span class="w"> </span><span class="s">-O -L --output-dir ./src/dtc_de_course/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
 </code></pre></div>
 or
-<div class="highlight"><pre><span></span><code><span class="na">wget</span><span class="w"> </span><span class="s">-p ./code/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
+<div class="highlight"><pre><span></span><code><span class="na">wget</span><span class="w"> </span><span class="s">-p ./src/dtc_de_course/week_1/docker/postgres/raw https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet</span>
 </code></pre></div></p>
-<p>We load this data into Postgres with the code inside <a href="../../code/week_1/docker/postgres/data_to_postgres.ipynb">this notebook</a>.</p>
+<p>We load this data into Postgres with the code inside <a href="https://github.com/Tonivalle/DTC-DE-Course/blob/main/code/week_1/docker/postgres/data_to_postgres.ipynb">this notebook</a>.</p>
 <p>To see the data and interact with it we are going to use pgAdmin inside a docker container, wich we will be able to see in our browser at <code>http://localhost:8080/</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="na">docker</span><span class="w"> </span><span class="s">run -it </span>\
 <span class="w">  </span><span class="s">-e PGADMIN_DEFAULT_EMAIL=&quot;admin@admin.com&quot; </span>\
@@ -606,7 +788,7 @@ or
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
     
   </body>
