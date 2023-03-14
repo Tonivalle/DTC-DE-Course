@@ -44,4 +44,4 @@ You will need to create a dbt cloud account using [this link](https://www.getdbt
 
 After having set up the dbt cloud credentials (repo and data warehouse) we can start the project from the web-based IDE by clicking on `initialize your project`.
 
-Once we do that we can go ahead and change the name of the project in the `dbt_project.yml` (It appears more than once later in the yml, change it everywhere)
+Once we do that we can go ahead and change the name of the project in the `dbt_project.yml` (It appears more than once later in the yml, change it everywhere).

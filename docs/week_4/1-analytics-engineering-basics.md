@@ -10,7 +10,7 @@ Their usual competences are in __Data Loading__ (see [ETL vs ELT](https://github
 
 Kimball’s Dimensional Modeling has the objective of delivering data understandable to the business users and fast query performance. This is done by prioritising user understandability and query performance over non redundant data (3NF).
 
-Other approaches are [Bill Inmon](https://ia800202.us.archive.org/9/items/2005BuildingTheDataWarehouse4thEditionWilliamH.Inmon/2005%20-%20Building%20The%20Data%20Warehouse%20%284th%20Edition%29%20%28William%20H.%20Inmon%29.pdf) and [Data vault](https://en.wikipedia.org/wiki/Data_vault_modeling)
+Other approaches are [Bill Inmon](https://ia800202.us.archive.org/9/items/2005BuildingTheDataWarehouse4thEditionWilliamH.Inmon/2005%20-%20Building%20The%20Data%20Warehouse%20%284th%20Edition%29%20%28William%20H.%20Inmon%29.pdf) and [Data vault](https://en.wikipedia.org/wiki/Data_vault_modeling).
 
 Dimensional Modeling is composed of 2 principal elements: Facts tables and Dimensions tables.
 
@@ -28,7 +28,7 @@ It is composed of 3 areas:
 2. __Processing Area__
     * Transforms from raw data to data models.
     * Focused on efficiency and ensuring standards.
-    * Only accessible to people that know how people who transform the raw data.
+    * Only accessible to people who transform the raw data or use the data models with few transformations.
 
 3. __Presentation Area__
     * Final form of the data.
